@@ -7,7 +7,7 @@
 rollapply(x, k, fun, n = 1, ...)
 }
 \arguments{
-\item{x}{vector of data, assumed to be evenly spaced.}
+\item{x}{vector of data (assumed to be approximately evenly spaced for moving window statistics to make sense).}
 
 \item{k}{order of the window; the window size is 2k+1.}
 

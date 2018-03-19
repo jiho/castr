@@ -1,9 +1,8 @@
-#' Detect the position of a cline in a CTD profile
+#' Detect the position of a cline
 #'
 #' The cline of a variable is the depth at which it varies the most along the cast; here it is computed as the maximum of the moving standard deviation over the (possibly smoothed) cast.
 #'
-#' @inheritParams rollapply
-#' @param depth vector of depths at which `x` is measured; optional.
+#' @inheritParams smooth
 #' @param n.smooth integer, number of times to smooth the data before computing the moving standard deviation.
 #' @param ... not used.
 #'

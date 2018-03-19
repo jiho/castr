@@ -2,7 +2,7 @@
 #'
 #' Allows to compute a moving average, median, sd, mad, etc. in a generic way.
 #'
-#' @param x vector of data, assumed to be evenly spaced.
+#' @param x vector of data (assumed to be approximately evenly spaced for moving window statistics to make sense).
 #' @param k order of the window; the window size is 2k+1.
 #' @param fun function to apply in the moving window.
 #' @param n number of times to pass the function over the data.

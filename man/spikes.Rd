@@ -7,7 +7,7 @@
 spikes(x, k, mult = 5.3, n.max = 10)
 }
 \arguments{
-\item{x}{vector of data, assumed to be evenly spaced.}
+\item{x}{vector of data (assumed to be approximately evenly spaced for moving window statistics to make sense).}
 
 \item{k}{order of the window; the window size is 2k+1.}
 
@@ -55,10 +55,10 @@ points(y ~ x, data=df[spikes(df$y, k=3, mult=2),], col="red")
 # The data is quite noisy to start with, so the multiplier for the median
 # absolute deviation needs to be small enough.
 # All spikes are detected in the first, low noise half. Spikes of the
-# same amplitude in the second part are often part of the noise and are
-# not detected as spikes, for the most part (there are some false
+# same amplitude in the second half are often part of the noise and are
+# not detected as spikes, for most of them (there are some false
 # positive). True spikes can be masked in the noise but those that can
-# reasonnably be expected to be detected, are.
+# reasonnably be expected to be detected (that stand out), are.
 }
 \seealso{
 despike

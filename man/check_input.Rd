@@ -4,12 +4,12 @@
 \alias{check_input}
 \title{Check input data}
 \usage{
-check_input(x, depth)
+check_input(x, depth = NULL)
 }
 \arguments{
 \item{x}{vector of the variable of interest.}
 
-\item{depth}{vector of depths at which \code{x} is measured.}
+\item{depth}{vector of depths at which \code{x} is measured; optional.}
 }
 \value{
 TRUE when the data is ok, FALSE when it is fully missing, FALSE and throws an error when \code{depth} is not the same length as \code{x}.

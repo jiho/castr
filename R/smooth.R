@@ -3,6 +3,7 @@
 #' Smooth a variable profile using a weighted moving average.
 #'
 #' @inheritParams rollapply
+#' @param n number of times to smooth the data.
 #'
 #' @return A vector containing the smoothed variable, containing as many elements as the original variable.
 #' @export

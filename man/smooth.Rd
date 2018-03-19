@@ -7,11 +7,11 @@
 smooth(x, k = 1, n = 1)
 }
 \arguments{
-\item{x}{vector of data, assumed to be evenly spaced.}
+\item{x}{vector of data (assumed to be approximately evenly spaced for moving window statistics to make sense).}
 
 \item{k}{order of the window; the window size is 2k+1.}
 
-\item{n}{number of times to pass the function over the data.}
+\item{n}{number of times to smooth the data.}
 }
 \value{
 A vector containing the smoothed variable, containing as many elements as the original variable.

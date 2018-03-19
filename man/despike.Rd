@@ -7,7 +7,7 @@
 despike(x, ...)
 }
 \arguments{
-\item{x}{vector of data, assumed to be evenly spaced.}
+\item{x}{vector of data (assumed to be approximately evenly spaced for moving window statistics to make sense).}
 
 \item{...}{passed to \code{\link[=spikes]{spikes()}}}
 }

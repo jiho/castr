@@ -2,14 +2,12 @@
 % Please edit documentation in R/clined.R
 \name{clined}
 \alias{clined}
-\title{Detect the position of a cline in a CTD profile}
+\title{Detect the position of a cline}
 \usage{
 clined(x, depth = NULL, k = 2, n.smooth = 0, ...)
 }
 \arguments{
-\item{x}{vector of data, assumed to be evenly spaced.}
-
-\item{depth}{vector of depths at which \code{x} is measured; optional.}
+\item{x}{vector of data (assumed to be approximately evenly spaced for moving window statistics to make sense).}
 
 \item{k}{order of the window; the window size is 2k+1.}
 

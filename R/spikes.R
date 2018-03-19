@@ -45,10 +45,10 @@
 #' # The data is quite noisy to start with, so the multiplier for the median
 #' # absolute deviation needs to be small enough.
 #' # All spikes are detected in the first, low noise half. Spikes of the
-#' # same amplitude in the second part are often part of the noise and are
-#' # not detected as spikes, for the most part (there are some false
+#' # same amplitude in the second half are often part of the noise and are
+#' # not detected as spikes, for most of them (there are some false
 #' # positive). True spikes can be masked in the noise but those that can
-#' # reasonnably be expected to be detected, are.
+#' # reasonnably be expected to be detected (that stand out), are.
 spikes <- function(x, k, mult=5.3, n.max=10) {
 
   # initialise with no spikes
