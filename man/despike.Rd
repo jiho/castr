@@ -7,7 +7,7 @@
 despike(x, ...)
 }
 \arguments{
-\item{x}{vector of the variable of interest. It should be recorded at approximately regular intervals.}
+\item{x}{vector of the variable of interest. It must have been recorded at approximately regular intervals (see \code{\link[=rollapply]{rollapply()}} as to why).}
 
 \item{...}{passed to \code{\link[=spikes]{spikes()}}}
 }

@@ -10,7 +10,7 @@ mld(x, depth, ref.depths = 5:10, criteria = c(0.03, 0.01),
 \arguments{
 \item{x}{vector of the variable of interest, usually potential or in situ density.}
 
-\item{depth}{vector of depths at which \code{x} is measured; optional.}
+\item{depth}{vector of depths at which \code{x} is measured.}
 
 \item{ref.depths}{depth(s) of reference, near the surface; when \code{ref.depths} is a vector, the value of \code{x} is averaged between those depths.}
 
@@ -19,10 +19,6 @@ mld(x, depth, ref.depths = 5:10, criteria = c(0.03, 0.01),
 \item{default.depth}{when no threshold is crossed, return this value instead; a usual value is the full depth of the water column (or \code{max(depth)}).}
 
 \item{n.smooth}{integer, number of times to smooth the data before applying the mixed layer criteria.}
-
-\item{k}{order of the moving average used for smoothing; the window size is 2k+1. NB: when data is smoothed, it should have been recorded at approximately regular intervals for the moving average to make sense.}
-
-\item{...}{not used.}
 }
 \value{
 If no criterion is met, return \code{default.depth}. If a criterion is met return the last depth at which it was not.

@@ -9,7 +9,7 @@ check_input(x, depth = NULL)
 \arguments{
 \item{x}{vector of the variable of interest.}
 
-\item{depth}{vector of depths at which \code{x} is measured; optional.}
+\item{depth}{vector of depths at which \code{x} is measured.}
 }
 \value{
 TRUE when the data is ok, FALSE when it is fully missing, FALSE and throws an error when \code{depth} is not the same length as \code{x}.

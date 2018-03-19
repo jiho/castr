@@ -1,8 +1,7 @@
 #' Detect the depth of the mixed layer
 #'
-#' @inheritParams maxd
 #' @param x vector of the variable of interest, usually potential or in situ density.
-#' @param depth vector of depths at which `x` is measured; optional.
+#' @param depth vector of depths at which `x` is measured.
 #' @param ref.depths depth(s) of reference, near the surface; when `ref.depths` is a vector, the value of `x` is averaged between those depths.
 #' @param criteria value(s) considered as thresholds for the computation of the depth of the mixed layer. The thresholds are tried successively.
 #' @param default.depth when no threshold is crossed, return this value instead; a usual value is the full depth of the water column (or `max(depth)`).

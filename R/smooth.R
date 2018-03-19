@@ -2,8 +2,8 @@
 #'
 #' Smooth a variable in a cast using a weighted moving average.
 #'
-#' @param x vector of the variable of interest. It should be recorded at approximately regular intervals.
 #' @inheritParams rollapply
+#' @param x vector of the variable of interest. It must have been recorded at approximately regular intervals (see [rollapply()] as to why).
 #' @param n number of times to smooth the data.
 #'
 #' @return A vector containing the smoothed variable, containing as many elements as the original variable.

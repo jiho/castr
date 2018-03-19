@@ -7,7 +7,7 @@
 clined(x, depth = NULL, n.smooth = 0, k = 2, ...)
 }
 \arguments{
-\item{x}{vector of the variable of interest. It should be recorded at approximately regular intervals.}
+\item{x}{vector of the variable of interest. It must have been recorded at approximately regular intervals (see \code{\link[=rollapply]{rollapply()}} as to why).}
 
 \item{depth}{vector of depths at which \code{x} is measured; optional.}
 

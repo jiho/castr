@@ -9,7 +9,7 @@ get_depth(i, depth)
 \arguments{
 \item{i}{element of \code{depth} to extract.}
 
-\item{depth}{vector of depths at which \code{x} is measured; optional.}
+\item{depth}{vector of depths at which \code{x} is measured.}
 }
 \value{
 If both \code{i} and \code{depth} are provided, return \code{depth[i]}. If \code{i} is NULL/empty, return NA. If \code{depth} is NULL return \code{i}.

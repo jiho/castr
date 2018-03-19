@@ -3,7 +3,7 @@
 #' The cline of a variable is the depth at which it varies most sharply along the cast; here it is computed as the maximum of the moving standard deviation over the (possibly smoothed) cast.
 #'
 #' @inheritParams smooth
-#' @inheritParams check_input
+#' @param depth vector of depths at which `x` is measured; optional.
 #' @param n.smooth integer, number of times to smooth the data before computing the moving standard deviation.
 #' @param ... not used.
 #'

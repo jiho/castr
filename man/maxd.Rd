@@ -14,8 +14,6 @@ maxd(x, depth = NULL, n.smooth = 1, k = 2, ...)
 \item{n.smooth}{integer, number of times to smooth the data before detecting the maximum (1 by default, because we are rarely interested in the absolute maximum, which often corresponds to a spike, but rather in the region of the maximum values).}
 
 \item{k}{order of the moving average used for smoothing; the window size is 2k+1. NB: when data is smoothed, it should have been recorded at approximately regular intervals for the moving average to make sense.}
-
-\item{...}{not used.}
 }
 \value{
 When \code{depth} is \code{NULL}, return the index of \code{x} corresponding to the maximum, \code{i}. When \code{depth} is provided, return \code{depth[i]}, the value of the depth of the maximum.

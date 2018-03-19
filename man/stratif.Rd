@@ -9,7 +9,7 @@ stratif(x, depth, min.depths, max.depths)
 \arguments{
 \item{x}{vector of the variable of interest, usually potential or in situ density.}
 
-\item{depth}{vector of depths at which \code{x} is measured; optional.}
+\item{depth}{vector of depths at which \code{x} is measured.}
 
 \item{min.depths}{depth(s) of reference, near the surface; when \code{min.depths} is a vector, the value of x is averaged between those depths.}
 
@@ -27,7 +27,7 @@ plot(-depth ~ sigma, data=d, type="l")
 abline(h=-c(1, 5, 61, 65), col="red")
 stratif(d$sigma, d$depth, min.depths=1:5, max.depths=61:65)
 
-# estimate the intensity of the peak of chlorphyll at the deep
+# estimate the intensity of the peak of chlorophyll at the deep
 # chlorophyll maximum
 plot(-depth ~ fluo, data=d, type="l")
 DCM <- maxd(d$fluo, d$depth, n.smooth=2)

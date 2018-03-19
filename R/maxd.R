@@ -3,7 +3,7 @@
 #' Find the index or depth of the maximum in a (possibly smoothed) variable along a cast. Useful to find the depth of the Deep Chlorophyll Maximum (DCM) from a fluorescence profile for example.
 #'
 #' @inheritParams check_input
-#' @inheritParams clined
+#' @param depth vector of depths at which `x` is measured; optional.
 #' @param n.smooth integer, number of times to smooth the data before detecting the maximum (1 by default, because we are rarely interested in the absolute maximum, which often corresponds to a spike, but rather in the region of the maximum values).
 #' @param k order of the moving average used for smoothing; the window size is 2k+1. NB: when data is smoothed, it should have been recorded at approximately regular intervals for the moving average to make sense.
 #'

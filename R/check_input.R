@@ -3,7 +3,7 @@
 #' Check that the input data is usable as a CTD cast (not fully missing and of compatible length). Used by other functions.
 #'
 #' @param x vector of the variable of interest.
-#' @param depth vector of depths at which `x` is measured; optional.
+#' @param depth vector of depths at which `x` is measured.
 #'
 #' @return TRUE when the data is ok, FALSE when it is fully missing, FALSE and throws an error when `depth` is not the same length as `x`.
 #' @examples
