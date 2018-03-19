@@ -9,6 +9,8 @@
 #' @return The value of the stratification index.
 #' @export
 #'
+#' @seealso [mld()] for the computation of the depth of the mixed layer, another quantification of the intensity of mixing/stratificatin; [smooth()] for smoothing.
+#'
 #' @examples
 #' # estimate the intensity of stratification using density
 #' plot(-depth ~ sigma, data=d, type="l")
@@ -21,10 +23,13 @@
 #' DCM <- maxd(d$fluo, d$depth, n.smooth=2)
 #' abline(h=-c(0, 2, DCM-2, DCM+2), col="chartreuse4")
 #' stratif(d$fluo, d$depth, min.depths=0:2, max.depths=c(DCM-2, DCM+2))
-stratif <- function(x, depth, min.depths, max.depths) {
+stratif <- function(x, depth, min.depths, max.depths, n.smooth=0, k=2) {
   # check input
   ok <- check_input(x, depth)
   if (!ok) { return(NA) }
+
+  # smooth the profile (if requested)
+  x <- smooth(x, k=k, n=n.smooth)
 
   # get indexes at which to consider data
   imin <- which(depth >= min(min.depths) & depth <= max(min.depths))

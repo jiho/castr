@@ -10,6 +10,9 @@
 #'
 #' @details Integration is used to compute the stock of a quantity (Chlorophyll a, nutrients, etc.) in a given depth layer (when `fun` is `\link[base:sum]{sum()}`) of the average of a variable (temperature, density, etc.) in a layer (in which case, `fun` should be `\link[base:mean]{mean()}`). It is often used with discrete data coming from bottle samples and needs to be made continuous. Here, this is done by interpolating the data every meter, either using either linear or constant interpolation.
 #'
+#' @return The value of the variable, integrated over the depth range.
+#' @export
+#'
 #' @examples
 #' # Stock of Chl a inferred from fluoresence
 #' plot(-depth ~ fluo, data=d, type="l")
@@ -19,16 +22,16 @@
 #' integrate(d$fluo, d$depth, from=0, to=50, method="constant")
 #'
 #' # around the Deep Chlorophyll Maximum
-#' dcm <- maxd(d$fluo, depth=d$depth)
-#' integrate(d$fluo, d$depth, from=dcm-10, to=dcm+10)
+#' DCM <- maxd(d$fluo, depth=d$depth)
+#' integrate(d$fluo, d$depth, from=DCM-10, to=DCM+10)
 #' # which amounts to this quantity
-#' d_dcm <- subset(d, depth > dcm-10 & depth < dcm+10)
+#' d_DCM <- subset(d, depth > DCM-10 & depth < DCM+10)
 #' polygon(
-#'   x=c(d_dcm$fluo, rep(0, times=nrow(d_dcm))),
-#'   y=-c(d_dcm$depth, rev(d_dcm$depth)),
+#'   x=c(d_DCM$fluo, rep(0, times=nrow(d_DCM))),
+#'   y=-c(d_DCM$depth, rev(d_DCM$depth)),
 #'   col="chartreuse2", border=NA
 #' )
-#' abline(h=-dcm, col="chartreuse4")
+#' abline(h=-DCM, col="chartreuse4")
 #'
 #' # For variables which do not represent a quantity, it is usually more
 #' # meaningful to compute the mean.

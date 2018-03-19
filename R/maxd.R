@@ -10,14 +10,17 @@
 #' @return When `depth` is `NULL`, return the index of `x` corresponding to the maximum, `i`. When `depth` is provided, return `depth[i]`, the value of the depth of the maximum.
 #' @export
 #'
+#' @family functions computing remarkable depths
+#' @seealso [smooth()] for smoothing.
+#'
 #' @examples
 #' plot(-depth ~ fluo, data=d, type="l")
 #' # find the absolute maximum
-#' dcm <- maxd(d$fluo, d$depth, n.smooth=0)
-#' abline(h=-dcm, col="chartreuse4", lty="dashed")
+#' DCM <- maxd(d$fluo, d$depth, n.smooth=0)
+#' abline(h=-DCM, col="chartreuse4", lty="dashed")
 #' # find the region of the maximum, along a smoothed cast
-#' dcm <- maxd(d$fluo, d$depth, n.smooth=3, k=3)
-#' abline(h=-dcm, col="chartreuse4")
+#' DCM <- maxd(d$fluo, d$depth, n.smooth=3, k=3)
+#' abline(h=-DCM, col="chartreuse4")
 maxd <- function(x, depth=NULL, n.smooth=1, k=2, ...) {
   # check input
   ok <- check_input(x, depth)

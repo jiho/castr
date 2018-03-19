@@ -21,5 +21,5 @@ print(x)
 despike(x, k=1)
 }
 \seealso{
-\code{\link[=spikes]{spikes()}}
+\code{\link[=spikes]{spikes()}} for the underlying computation.
 }

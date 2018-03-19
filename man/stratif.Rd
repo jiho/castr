@@ -4,7 +4,7 @@
 \alias{stratif}
 \title{Compute an index of stratification}
 \usage{
-stratif(x, depth, min.depths, max.depths)
+stratif(x, depth, min.depths, max.depths, n.smooth = 0, k = 2)
 }
 \arguments{
 \item{x}{vector of the variable of interest, usually potential or in situ density.}
@@ -14,6 +14,8 @@ stratif(x, depth, min.depths, max.depths)
 \item{min.depths}{depth(s) of reference, near the surface; when \code{min.depths} is a vector, the value of x is averaged between those depths.}
 
 \item{max.depths}{similar to \code{min.depths} but at the bottom}
+
+\item{n.smooth}{integer, number of times to smooth the data before applying the mixed layer criteria.}
 }
 \value{
 The value of the stratification index.
@@ -33,4 +35,7 @@ plot(-depth ~ fluo, data=d, type="l")
 DCM <- maxd(d$fluo, d$depth, n.smooth=2)
 abline(h=-c(0, 2, DCM-2, DCM+2), col="chartreuse4")
 stratif(d$fluo, d$depth, min.depths=0:2, max.depths=c(DCM-2, DCM+2))
+}
+\seealso{
+\code{\link[=mld]{mld()}} for the computation of the depth of the mixed layer, another quantification of the intensity of mixing/stratificatin; \code{\link[=smooth]{smooth()}} for smoothing.
 }

@@ -33,13 +33,19 @@ In addition, here, when a range of depths is provided as reference, the refence 
 }
 \examples{
 plot(-depth ~ sigma, data=d, type="l")
-# compute mixed layer depth
+# Compute mixed layer depth
 MLD <- mld(d$sigma, d$depth)
 abline(h=-MLD, col="red")
-# compare with pycnocline
+# Compare with the depth of the pycnocline
 pycnocline <- clined(d$sigma, d$depth)
 abline(h=-pycnocline, col="blue")
 }
 \references{
 de Boyer Montegut et al (2004). Mixed layer depth over the global ocean: An examination of profile data and a profile‐based climatology. Journal of Geophysical Research: Oceans, 109(C12). \url{https://doi.org/10.1029/2004JC002378}
+}
+\seealso{
+\code{\link[=smooth]{smooth()}} for smoothing.
+
+Other functions computing remarkable depths: \code{\link{clined}},
+  \code{\link{maxd}}
 }

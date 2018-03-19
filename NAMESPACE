@@ -2,7 +2,9 @@
 
 export(clined)
 export(despike)
+export(integrate)
 export(maxd)
+export(mld)
 export(rollapply)
 export(smooth)
 export(spikes)

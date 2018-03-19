@@ -10,6 +10,9 @@
 #' @return When `depth` is `NULL`, return the index of `x` corresponding to the cline, `i`. When `depth` is provided, return `depth[i]`, the value of the depth of the cline.
 #' @export
 #'
+#' @family functions computing remarkable depths
+#' @seealso [rollapply()] for the underlying implementation of the moving standard deviation, [smooth()] for smoothing.
+#'
 #' @examples
 #' plot(-depth ~ temp, data=d, type="l")
 #' thermocline <- clined(d$temp, d$depth)

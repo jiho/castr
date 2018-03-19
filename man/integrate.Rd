@@ -19,6 +19,9 @@ integrate(x, depth, fun = sum, from = 0, to = 100, ...)
 
 \item{...}{passed to \code{\link[base:approx]{approx()}}; allows to choose the method for the interpolation: "linear" (the default) results in integration by trapezoids, "constant" with f=0 or f=1 results in integration by rectangles (and is often not optimal).}
 }
+\value{
+The value of the variable, integrated over the depth range.
+}
 \description{
 Sum or average a given variable over a range of depths.
 }
@@ -34,16 +37,16 @@ integrate(d$fluo, d$depth, from=0, to=50)
 integrate(d$fluo, d$depth, from=0, to=50, method="constant")
 
 # around the Deep Chlorophyll Maximum
-dcm <- maxd(d$fluo, depth=d$depth)
-integrate(d$fluo, d$depth, from=dcm-10, to=dcm+10)
+DCM <- maxd(d$fluo, depth=d$depth)
+integrate(d$fluo, d$depth, from=DCM-10, to=DCM+10)
 # which amounts to this quantity
-d_dcm <- subset(d, depth > dcm-10 & depth < dcm+10)
+d_DCM <- subset(d, depth > DCM-10 & depth < DCM+10)
 polygon(
-  x=c(d_dcm$fluo, rep(0, times=nrow(d_dcm))),
-  y=-c(d_dcm$depth, rev(d_dcm$depth)),
+  x=c(d_DCM$fluo, rep(0, times=nrow(d_DCM))),
+  y=-c(d_DCM$depth, rev(d_DCM$depth)),
   col="chartreuse2", border=NA
 )
-abline(h=-dcm, col="chartreuse4")
+abline(h=-DCM, col="chartreuse4")
 
 # For variables which do not represent a quantity, it is usually more
 # meaningful to compute the mean.

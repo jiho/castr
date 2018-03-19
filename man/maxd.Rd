@@ -24,9 +24,15 @@ Find the index or depth of the maximum in a (possibly smoothed) variable along a
 \examples{
 plot(-depth ~ fluo, data=d, type="l")
 # find the absolute maximum
-dcm <- maxd(d$fluo, d$depth, n.smooth=0)
-abline(h=-dcm, col="chartreuse4", lty="dashed")
+DCM <- maxd(d$fluo, d$depth, n.smooth=0)
+abline(h=-DCM, col="chartreuse4", lty="dashed")
 # find the region of the maximum, along a smoothed cast
-dcm <- maxd(d$fluo, d$depth, n.smooth=3, k=3)
-abline(h=-dcm, col="chartreuse4")
+DCM <- maxd(d$fluo, d$depth, n.smooth=3, k=3)
+abline(h=-DCM, col="chartreuse4")
+}
+\seealso{
+\code{\link[=smooth]{smooth()}} for smoothing.
+
+Other functions computing remarkable depths: \code{\link{clined}},
+  \code{\link{mld}}
 }

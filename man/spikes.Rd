@@ -61,5 +61,5 @@ points(y ~ x, data=df[spikes(df$y, k=3, mult=2),], col="red")
 # reasonably be expected to be detected (that stand out), are.
 }
 \seealso{
-\code{\link[=despike]{despike()}}
+\code{\link[=despike]{despike()}} for a shortcut to just remove spikes from a profile and \code{\link[=rollapply]{rollapply()}} for the underlying implementation of the moving median and mad.
 }

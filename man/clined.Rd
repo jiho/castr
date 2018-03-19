@@ -32,3 +32,9 @@ plot(-depth ~ sal, data=d, type="l")
 halocline <- clined(d$sal, d$depth)
 abline(h=-halocline, col="red")
 }
+\seealso{
+\code{\link[=rollapply]{rollapply()}} for the underlying implementation of the moving standard deviation, \code{\link[=smooth]{smooth()}} for smoothing.
+
+Other functions computing remarkable depths: \code{\link{maxd}},
+  \code{\link{mld}}
+}

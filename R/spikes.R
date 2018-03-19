@@ -18,7 +18,7 @@
 #' @return A logical vector, as long as `x`, containing TRUE for points that are considered as spikes, FALSE for others.
 #' @export
 #'
-#' @seealso [despike()]
+#' @seealso [despike()] for a shortcut to just remove spikes from a profile and [rollapply()] for the underlying implementation of the moving median and mad.
 #'
 #' @examples
 #' # create fake data
@@ -81,7 +81,7 @@ spikes <- function(x, k, mult=5.3, n.max=10) {
 #' @inheritParams spikes
 #' @param ... passed to [spikes()]
 #' @export
-#' @seealso [spikes()]
+#' @seealso [spikes()] for the underlying computation.
 #' @examples
 #' x <- c(10,10,12,11,33,15,12,11,11)
 #' plot(x, type="l")
