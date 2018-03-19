@@ -1,0 +1,36 @@
+#' Compute an index of stratification
+#'
+#' Compute the difference in a given variable between a two depth layers, usually the surface, mixed layer and a bottom reference layer. This is often used with density to quantify the intensity of stratification.
+#'
+#' @inheritParams mld
+#' @param min.depths depth(s) of reference, near the surface; when `min.depths` is a vector, the value of x is averaged between those depths.
+#' @param max.depths similar to `min.depths` but at the bottom
+#'
+#' @return The value of the stratification index.
+#' @export
+#'
+#' @examples
+#' # estimate the intensity of stratification using density
+#' plot(-depth ~ sigma, data=d, type="l")
+#' abline(h=-c(1, 5, 61, 65), col="red")
+#' stratif(d$sigma, d$depth, min.depths=1:5, max.depths=61:65)
+#'
+#' # estimate the intensity of the peak of chlorphyll at the deep
+#' # chlorophyll maximum
+#' plot(-depth ~ fluo, data=d, type="l")
+#' DCM <- maxd(d$fluo, d$depth, n.smooth=2)
+#' abline(h=-c(0, 2, DCM-2, DCM+2), col="chartreuse4")
+#' stratif(d$fluo, d$depth, min.depths=0:2, max.depths=c(DCM-2, DCM+2))
+stratif <- function(x, depth, min.depths, max.depths) {
+  # check input
+  ok <- check_input(x, depth)
+  if (!ok) { return(NA) }
+
+  # get indexes at which to consider data
+  imin <- which(depth >= min(min.depths) & depth <= max(min.depths))
+  imax <- which(depth >= min(max.depths) & depth <= max(max.depths))
+  # TODO divide by depth range? add a standardize argument defaulting to FALSE?
+
+  # compute the index
+  abs(mean(x[imin], na.rm=TRUE) - mean(x[imax], na.rm=TRUE))
+}
