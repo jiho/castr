@@ -1,4 +1,6 @@
-#' Smooth a variable using a weighted moving average
+#' Smooth a variable profile
+#'
+#' Smooth a variable profile using a weighted moving average.
 #'
 #' @inheritParams rollapply
 #'

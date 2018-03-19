@@ -2,7 +2,7 @@
 % Please edit documentation in R/smooth.R
 \name{smooth}
 \alias{smooth}
-\title{Smooth a variable using a weighted moving average}
+\title{Smooth a variable profile}
 \usage{
 smooth(x, k = 1, n = 1)
 }
@@ -17,7 +17,7 @@ smooth(x, k = 1, n = 1)
 A vector containing the smoothed variable, containing as many elements as the original variable.
 }
 \description{
-Smooth a variable using a weighted moving average
+Smooth a variable profile using a weighted moving average.
 }
 \examples{
 plot(-depth ~ fluo, data=d, type="l")
