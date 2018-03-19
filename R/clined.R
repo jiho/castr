@@ -1,12 +1,13 @@
 #' Detect the position of a cline
 #'
-#' The cline of a variable is the depth at which it varies the most along the cast; here it is computed as the maximum of the moving standard deviation over the (possibly smoothed) cast.
+#' The cline of a variable is the depth at which it varies most sharply along the cast; here it is computed as the maximum of the moving standard deviation over the (possibly smoothed) cast.
 #'
 #' @inheritParams smooth
+#' @inheritParams check_input
 #' @param n.smooth integer, number of times to smooth the data before computing the moving standard deviation.
 #' @param ... not used.
 #'
-#' @return When `depth` is `NULL`, return the index of the cline, `i`; when `depth` is provided, return `depth[i]`, the value of the depth of the cline.
+#' @return When `depth` is `NULL`, return the index of `x` corresponding to the cline, `i`. When `depth` is provided, return `depth[i]`, the value of the depth of the cline.
 #' @export
 #'
 #' @examples
@@ -17,7 +18,7 @@
 #' plot(-depth ~ sal, data=d, type="l")
 #' halocline <- clined(d$sal, d$depth)
 #' abline(h=-halocline, col="red")
-clined <- function(x, depth=NULL, k=2, n.smooth=0, ...) {
+clined <- function(x, depth=NULL, n.smooth=0, k=2, ...) {
   # check input
   ok <- check_input(x, depth)
   if (!ok) { return(NA) }

@@ -2,14 +2,14 @@
 % Please edit documentation in R/smooth.R
 \name{smooth}
 \alias{smooth}
-\title{Smooth a variable profile}
+\title{Smooth a variable}
 \usage{
 smooth(x, k = 1, n = 1)
 }
 \arguments{
-\item{x}{vector of data (assumed to be approximately evenly spaced for moving window statistics to make sense).}
+\item{x}{vector of the variable of interest. It should be recorded at approximately regular intervals.}
 
-\item{k}{order of the window; the window size is 2k+1.}
+\item{k}{order of the moving window; the window size is 2k+1.}
 
 \item{n}{number of times to smooth the data.}
 }
@@ -17,10 +17,14 @@ smooth(x, k = 1, n = 1)
 A vector containing the smoothed variable, containing as many elements as the original variable.
 }
 \description{
-Smooth a variable profile using a weighted moving average.
+Smooth a variable in a cast using a weighted moving average.
 }
 \examples{
-plot(-depth ~ fluo, data=d, type="l")
+plot(-depth ~ fluo, data=d)
 lines(-depth ~ smooth(fluo), data=d, type="l", col="red")
 lines(-depth ~ smooth(fluo, k=2, n=5), data=d, type="l", col="blue")
+legend(1, 0, legend=c("k=1, n=1", "k=2, n=5"), col=c("red", "blue"), lty="solid")
+}
+\seealso{
+\code{\link[=rollapply]{rollapply()}} for the underlying implementation.
 }

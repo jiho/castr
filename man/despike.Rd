@@ -7,13 +7,19 @@
 despike(x, ...)
 }
 \arguments{
-\item{x}{vector of data (assumed to be approximately evenly spaced for moving window statistics to make sense).}
+\item{x}{vector of the variable of interest. It should be recorded at approximately regular intervals.}
 
 \item{...}{passed to \code{\link[=spikes]{spikes()}}}
 }
 \description{
 Replace spikes by NA in a cast
 }
+\examples{
+x <- c(10,10,12,11,33,15,12,11,11)
+plot(x, type="l")
+print(x)
+despike(x, k=1)
+}
 \seealso{
-spikes
+\code{\link[=spikes]{spikes()}}
 }

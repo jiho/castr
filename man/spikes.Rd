@@ -7,11 +7,11 @@
 spikes(x, k, mult = 5.3, n.max = 10)
 }
 \arguments{
-\item{x}{vector of data (assumed to be approximately evenly spaced for moving window statistics to make sense).}
+\item{x}{vector of the variable of interest. It should be recorded at approximately regular intervals.}
 
-\item{k}{order of the window; the window size is 2k+1.}
+\item{k}{order of the moving window; the window size is 2k+1.}
 
-\item{mult}{number by which to multiply the mad to set the threshold to flag a point as a spike.}
+\item{mult}{number by which to multiply the median absolute deviation to set the threshold to flag a data point as a spike.}
 
 \item{n.max}{maximum number of times to iterate over the data to find spikes.}
 }
@@ -22,7 +22,7 @@ A logical vector, as long as \code{x}, containing TRUE for points that are consi
 Use the distance from a moving median as a criterion to find spikes.
 }
 \details{
-A moving median is computed. Spikes are detected as large anomalies compared to the moving median. "Large" is defined as greater than \code{mult} times the median absolute deviation, computed over the same window (see \code{\link[stats]{mad}()}). The point(s) marked as spike(s) is(are) masked and the process is repeated, for at most \code{n.max} iterations.
+A moving median is computed. Spikes are detected as large anomalies compared to the moving median. "Large" is defined as greater than \code{mult} times the median absolute deviation, computed over the same window (see \code{\link[stats:mad]{mad()}}). The point(s) marked as spike(s) is(are) masked and the process is repeated, for at most \code{n.max} iterations.
 
 Because the criterion is based on a moving median, the function can detect spikes in a variable for which the mean value varies along the cast (as opposed to just flagging the most extreme values). For example, in a variable that varies between 0 and 5, a value of only 2 can be flagged as a spike if its surrounding values in the window are all close to 0.
 
@@ -58,8 +58,8 @@ points(y ~ x, data=df[spikes(df$y, k=3, mult=2),], col="red")
 # same amplitude in the second half are often part of the noise and are
 # not detected as spikes, for most of them (there are some false
 # positive). True spikes can be masked in the noise but those that can
-# reasonnably be expected to be detected (that stand out), are.
+# reasonably be expected to be detected (that stand out), are.
 }
 \seealso{
-despike
+\code{\link[=despike]{despike()}}
 }

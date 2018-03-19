@@ -4,22 +4,24 @@
 \alias{clined}
 \title{Detect the position of a cline}
 \usage{
-clined(x, depth = NULL, k = 2, n.smooth = 0, ...)
+clined(x, depth = NULL, n.smooth = 0, k = 2, ...)
 }
 \arguments{
-\item{x}{vector of data (assumed to be approximately evenly spaced for moving window statistics to make sense).}
+\item{x}{vector of the variable of interest. It should be recorded at approximately regular intervals.}
 
-\item{k}{order of the window; the window size is 2k+1.}
+\item{depth}{vector of depths at which \code{x} is measured; optional.}
 
 \item{n.smooth}{integer, number of times to smooth the data before computing the moving standard deviation.}
+
+\item{k}{order of the moving window; the window size is 2k+1.}
 
 \item{...}{not used.}
 }
 \value{
-When \code{depth} is \code{NULL}, return the index of the cline, \code{i}; when \code{depth} is provided, return \code{depth[i]}, the value of the depth of the cline.
+When \code{depth} is \code{NULL}, return the index of \code{x} corresponding to the cline, \code{i}. When \code{depth} is provided, return \code{depth[i]}, the value of the depth of the cline.
 }
 \description{
-The cline of a variable is the depth at which it varies the most along the cast; here it is computed as the maximum of the moving standard deviation over the (possibly smoothed) cast.
+The cline of a variable is the depth at which it varies most sharply along the cast; here it is computed as the maximum of the moving standard deviation over the (possibly smoothed) cast.
 }
 \examples{
 plot(-depth ~ temp, data=d, type="l")

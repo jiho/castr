@@ -2,26 +2,31 @@
 % Please edit documentation in R/rollapply.R
 \name{rollapply}
 \alias{rollapply}
-\title{Apply a function over a rolling window along a vector}
+\title{Apply a function in a rolling window along a vector}
 \usage{
 rollapply(x, k, fun, n = 1, ...)
 }
 \arguments{
-\item{x}{vector of data (assumed to be approximately evenly spaced for moving window statistics to make sense).}
+\item{x}{input numeric vector.}
 
-\item{k}{order of the window; the window size is 2k+1.}
+\item{k}{order of the moving window; the window size is 2k+1.}
 
 \item{fun}{function to apply in the moving window.}
 
 \item{n}{number of times to pass the function over the data.}
 
-\item{...}{arguments passed to \code{fun}. A usual one is \code{na.rm=TRUE}.}
+\item{...}{arguments passed to \code{fun}. A usual one is \code{na.rm=TRUE} to avoid getting \code{NA}s at the extremities of \code{x}.}
 }
 \value{
-The data passed through \code{fun}, \code{n} times.
+The data passed through \code{fun}, \code{n} times. Note that the result is as long as the input vector because the data is padded with \code{NA} to allow centring the window from the first to the last element of \code{x}.
 }
 \description{
-Allows to compute a moving average, median, sd, mad, etc. in a generic way.
+Allows to compute a moving average, median, standard deviation, median absolute deviation, etc. in a generic way.
+}
+\details{
+A window of size \code{2k+1} is centred on element \code{i} of \code{x}. All elements from index \code{i-k} to index \code{i+k} are sent to function \code{fun}. The returned value is associated with index \code{i} in the result. The window is moved to element \code{i+1} and so on.
+
+For such rolling window computation to make sense, the data must be recorded on a regular coordinate (i.e. at regular intervals). Otherwise, data points that are far from each other may end up in the same window.
 }
 \examples{
 # create some data and add random noise
@@ -41,9 +46,9 @@ wrmav <- rollapply(x, 3, weighted.mean, na.rm=T, w=c(1,2,3,4,3,2,1)/16, n=4)
 # moving median
 mmed  <- rollapply(x, 3, median, na.rm=T)
 lines(mav, col="red")
-lines(rmav, col="red", lty="dotted")
+lines(rmav, col="red", lty="dashed")
 lines(wmav, col="orange")
-lines(wrmav, col="orange", lty="dotted")
+lines(wrmav, col="orange", lty="dashed")
 lines(mmed, col="blue")
 # inspect variability around filtered data
 plot(rollapply(x-rmav, 7, sd))

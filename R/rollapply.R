@@ -1,14 +1,18 @@
-#' Apply a function over a rolling window along a vector
+#' Apply a function in a rolling window along a vector
 #'
-#' Allows to compute a moving average, median, sd, mad, etc. in a generic way.
+#' Allows to compute a moving average, median, standard deviation, median absolute deviation, etc. in a generic way.
 #'
-#' @param x vector of data (assumed to be approximately evenly spaced for moving window statistics to make sense).
-#' @param k order of the window; the window size is 2k+1.
+#' @param x input numeric vector.
+#' @param k order of the moving window; the window size is 2k+1.
 #' @param fun function to apply in the moving window.
 #' @param n number of times to pass the function over the data.
-#' @param ... arguments passed to `fun`. A usual one is `na.rm=TRUE`.
+#' @param ... arguments passed to `fun`. A usual one is `na.rm=TRUE` to avoid getting `NA`s at the extremities of `x`.
 #'
-#' @return The data passed through `fun`, `n` times.
+#' @details A window of size `2k+1` is centred on element `i` of `x`. All elements from index `i-k` to index `i+k` are sent to function `fun`. The returned value is associated with index `i` in the result. The window is moved to element `i+1` and so on.
+#'
+#' For such rolling window computation to make sense, the data must be recorded on a regular coordinate (i.e. at regular intervals). Otherwise, data points that are far from each other may end up in the same window.
+#'
+#' @return The data passed through `fun`, `n` times. Note that the result is as long as the input vector because the data is padded with `NA` to allow centring the window from the first to the last element of `x`.
 #' @export
 #'
 #' @examples
@@ -29,9 +33,9 @@
 #' # moving median
 #' mmed  <- rollapply(x, 3, median, na.rm=T)
 #' lines(mav, col="red")
-#' lines(rmav, col="red", lty="dotted")
+#' lines(rmav, col="red", lty="dashed")
 #' lines(wmav, col="orange")
-#' lines(wrmav, col="orange", lty="dotted")
+#' lines(wrmav, col="orange", lty="dashed")
 #' lines(mmed, col="blue")
 #' # inspect variability around filtered data
 #' plot(rollapply(x-rmav, 7, sd))
