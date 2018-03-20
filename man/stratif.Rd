@@ -39,5 +39,5 @@ abline(h=-c(0, 2, DCM-2, DCM+2), col="chartreuse4")
 stratif(d$fluo, d$depth, min.depths=0:2, max.depths=c(DCM-2, DCM+2))
 }
 \seealso{
-\code{\link[=mld]{mld()}} for the computation of the depth of the mixed layer, another quantification of the intensity of mixing/stratificatin; \code{\link[=smooth]{smooth()}} for smoothing.
+\code{\link[=mld]{mld()}} for the computation of the depth of the mixed layer, another quantification of the intensity of mixing/stratification; \code{\link[=smooth]{smooth()}} for smoothing.
 }

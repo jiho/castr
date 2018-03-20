@@ -14,7 +14,7 @@
 #' @export
 #'
 #' @examples
-#' # Stock of Chl a inferred from fluoresence
+#' # Stock of Chl a inferred from fluorescence
 #' plot(-depth ~ fluo, data=d, type="l")
 #'
 #' # near the surface

@@ -8,11 +8,11 @@
 #' @param n.smooth integer, number of times to smooth the data before applying the mixed layer criteria.
 #' @inheritParams maxd
 #'
-#' @details The mixed layer depth (MLD) is detected following de Boyer Montegut et al (2004): a reference value for density is taken near the surface and the water column is considered to be mixed until the depth at which density deviates from this refence by more than 0.03 kg/m^3. Optionally, when no depth satisfies this criterion, a second criterion of 0.01 kg/m^3 can be considered (as is by default).
+#' @details The mixed layer depth (MLD) is detected following de Boyer Montegut et al (2004): a reference value for density is taken near the surface and the water column is considered to be mixed until the depth at which density deviates from this reference by more than 0.03 kg/m^3. Optionally, when no depth satisfies this criterion, a second criterion of 0.01 kg/m^3 can be considered (as is by default).
 #'
-#' In addition, here, when a range of depths is provided as reference, the refence density is the average of the densities recorded in this depth range.
+#' In addition, here, when a range of depths is provided as reference, the reference density is the average of the densities recorded in this depth range.
 #'
-#' @return If no criterion is met, return `default.depth`. If a criterion is met return the last depth at which it was not.
+#' @return If no criterion is met, return `default.depth`. If a criterion is met, return the last depth at which it was not.
 #' @export
 #'
 #' @family functions computing remarkable depths

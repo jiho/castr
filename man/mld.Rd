@@ -23,15 +23,15 @@ mld(x, depth, ref.depths = 5:10, criteria = c(0.03, 0.01),
 \item{k}{order of the moving average used for smoothing; the window size is 2k+1. NB: when data is smoothed, it should have been recorded at approximately regular intervals for the moving average to make sense.}
 }
 \value{
-If no criterion is met, return \code{default.depth}. If a criterion is met return the last depth at which it was not.
+If no criterion is met, return \code{default.depth}. If a criterion is met, return the last depth at which it was not.
 }
 \description{
 Detect the depth of the mixed layer
 }
 \details{
-The mixed layer depth (MLD) is detected following de Boyer Montegut et al (2004): a reference value for density is taken near the surface and the water column is considered to be mixed until the depth at which density deviates from this refence by more than 0.03 kg/m^3. Optionally, when no depth satisfies this criterion, a second criterion of 0.01 kg/m^3 can be considered (as is by default).
+The mixed layer depth (MLD) is detected following de Boyer Montegut et al (2004): a reference value for density is taken near the surface and the water column is considered to be mixed until the depth at which density deviates from this reference by more than 0.03 kg/m^3. Optionally, when no depth satisfies this criterion, a second criterion of 0.01 kg/m^3 can be considered (as is by default).
 
-In addition, here, when a range of depths is provided as reference, the refence density is the average of the densities recorded in this depth range.
+In addition, here, when a range of depths is provided as reference, the reference density is the average of the densities recorded in this depth range.
 }
 \examples{
 plot(-depth ~ sigma, data=d, type="l")

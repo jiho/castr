@@ -9,7 +9,7 @@
 #' @return The value of the stratification index.
 #' @export
 #'
-#' @seealso [mld()] for the computation of the depth of the mixed layer, another quantification of the intensity of mixing/stratificatin; [smooth()] for smoothing.
+#' @seealso [mld()] for the computation of the depth of the mixed layer, another quantification of the intensity of mixing/stratification; [smooth()] for smoothing.
 #'
 #' @examples
 #' # estimate the intensity of stratification using density

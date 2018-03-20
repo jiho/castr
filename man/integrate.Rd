@@ -29,7 +29,7 @@ Sum or average a given variable over a range of depths.
 Integration is used to compute the stock of a quantity (Chlorophyll a, nutrients, etc.) in a given depth layer (when \code{fun} is \code{\link[base:sum]{sum()}}) of the average of a variable (temperature, density, etc.) in a layer (in which case, \code{fun} should be \code{\link[base:mean]{mean()}}). It is often used with discrete data coming from bottle samples and needs to be made continuous. Here, this is done by interpolating the data every meter, either using either linear or constant interpolation.
 }
 \examples{
-# Stock of Chl a inferred from fluoresence
+# Stock of Chl a inferred from fluorescence
 plot(-depth ~ fluo, data=d, type="l")
 
 # near the surface
