@@ -49,7 +49,7 @@
 #'     strat_index = stratif(sigma, depth, min.depths=0:5, max.depth=60:65),
 #'     DCM = maxd(fluo, depth, n.smooth=2, k=3),
 #'     MLD = mld(sigma, depth, ref.depths=0:5, default.depth=80),
-#'     # and the two following computation make use of variables that have
+#'     # and the two following computations make use of variables that have
 #'     # been computed above: MLD and DCM
 #'     temp_avg = integrate(temp, depth, from=0, to=MLD, fun=mean),
 #'     chla_dcm_stock = integrate(fluo, depth, from=DCM-10, to=DCM+10)

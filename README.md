@@ -10,7 +10,7 @@ This package contains functions to process data collected along CTD casts:
 
 It also provides utilities to apply a function in a moving window along the cast (`rollapply()`), hence enabling the computation of moving averages (to `smooth()` the data), medians (to detect `spikes()`), etc.
 
-Finally, two small datasets are provided to test the functions: one with a single cast ([d]) and another one with 41 casts ([ctd]).
+Finally, two small datasets are provided to test the functions: one with a single cast (`d`) and another one with 41 casts (`ctd`).
 
 ## Installation
 
@@ -23,7 +23,7 @@ devtools::install_github("jiho/castr")
 
 ## Usage
 
-All functions in `castr` work on vectors and make few assumptions regarding your data. Therefore, they fit in the [`tidyverse`](https://www.tidyverse.org) philosophy and work well with [`dplyr`](http://dplyr.tidyverse.org) verbs, as shown in the example below.
+All functions in `castr` work on vectors and make few assumptions regarding your data. Therefore, they fit in the [`tidyverse`](https://www.tidyverse.org) philosophy and work well with [`dplyr`](http://dplyr.tidyverse.org) verbs, as shown in the example below (which is repeated in `?castr`).
 
 ```R
 # We have a data.frame containing a time series of 41 CTD casts collected
@@ -61,7 +61,7 @@ stats <- ctd_clean %>% group_by(date) %>%
     strat_index = stratif(sigma, depth, min.depths=0:5, max.depth=60:65),
     DCM = maxd(fluo, depth, n.smooth=2, k=3),
     MLD = mld(sigma, depth, ref.depths=0:5, default.depth=80),
-    # and the two following computation make use of variables that have
+    # and the two following computations make use of variables that have
     # been computed above: MLD and DCM
     temp_avg = integrate(temp, depth, from=0, to=MLD, fun=mean),
     chla_dcm_stock = integrate(fluo, depth, from=DCM-10, to=DCM+10)
