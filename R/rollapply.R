@@ -23,15 +23,15 @@
 #' lines(xs)
 #' # filter the data in various ways
 #' # moving average
-#' mav   <- rollapply(x, 3, mean, na.rm=T)
+#' mav   <- rollapply(x, 3, mean, na.rm=TRUE)
 #' # running moving average
-#' rmav  <- rollapply(x, 3, mean, na.rm=T, n=4)
+#' rmav  <- rollapply(x, 3, mean, na.rm=TRUE, n=4)
 #' # weighted moving average
-#' wmav  <- rollapply(x, 3, weighted.mean, na.rm=T, w=c(1,2,3,4,3,2,1)/16)
+#' wmav  <- rollapply(x, 3, weighted.mean, na.rm=TRUE, w=c(1,2,3,4,3,2,1)/16)
 #' # weighted running moving average
-#' wrmav <- rollapply(x, 3, weighted.mean, na.rm=T, w=c(1,2,3,4,3,2,1)/16, n=4)
+#' wrmav <- rollapply(x, 3, weighted.mean, na.rm=TRUE, w=c(1,2,3,4,3,2,1)/16, n=4)
 #' # moving median
-#' mmed  <- rollapply(x, 3, median, na.rm=T)
+#' mmed  <- rollapply(x, 3, median, na.rm=TRUE)
 #' lines(mav, col="red")
 #' lines(rmav, col="red", lty="dashed")
 #' lines(wmav, col="orange")

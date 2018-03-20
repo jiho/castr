@@ -16,6 +16,8 @@ stratif(x, depth, min.depths, max.depths, n.smooth = 0, k = 2)
 \item{max.depths}{similar to \code{min.depths} but at the bottom}
 
 \item{n.smooth}{integer, number of times to smooth the data before applying the mixed layer criteria.}
+
+\item{k}{order of the moving average used for smoothing; the window size is 2k+1. NB: when data is smoothed, it should have been recorded at approximately regular intervals for the moving average to make sense.}
 }
 \value{
 The value of the stratification index.

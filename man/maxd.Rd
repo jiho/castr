@@ -4,7 +4,7 @@
 \alias{maxd}
 \title{Detect the position of the maximum}
 \usage{
-maxd(x, depth = NULL, n.smooth = 1, k = 2, ...)
+maxd(x, depth = NULL, n.smooth = 1, k = 2)
 }
 \arguments{
 \item{x}{vector of the variable of interest.}

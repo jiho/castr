@@ -5,7 +5,6 @@
 #' @inheritParams smooth
 #' @param depth vector of depths at which `x` is measured; optional.
 #' @param n.smooth integer, number of times to smooth the data before computing the moving standard deviation.
-#' @param ... not used.
 #'
 #' @return When `depth` is `NULL`, return the index of `x` corresponding to the cline, `i`. When `depth` is provided, return `depth[i]`, the value of the depth of the cline.
 #' @export
@@ -21,7 +20,7 @@
 #' plot(-depth ~ sal, data=d, type="l")
 #' halocline <- clined(d$sal, d$depth)
 #' abline(h=-halocline, col="red")
-clined <- function(x, depth=NULL, n.smooth=0, k=2, ...) {
+clined <- function(x, depth=NULL, n.smooth=0, k=2) {
   # check input
   ok <- check_input(x, depth)
   if (!ok) { return(NA) }
@@ -30,7 +29,7 @@ clined <- function(x, depth=NULL, n.smooth=0, k=2, ...) {
   x <- smooth(x, k=k, n=n.smooth)
 
   # compute the standard deviation
-  s <- rollapply(x, k=k, sd, na.rm=TRUE)
+  s <- rollapply(x, k=k, stats::sd, na.rm=TRUE)
   # get its maximum
   i <- which.max(s)
 

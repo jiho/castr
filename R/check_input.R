@@ -7,10 +7,10 @@
 #'
 #' @return TRUE when the data is ok, FALSE when it is fully missing, FALSE and throws an error when `depth` is not the same length as `x`.
 #' @examples
-#' check_input(c(22.1, 23.4, 23.2), c(1, 2, 3))
-#' check_input(c(NA, NA, NA), c(1, 2, 3))
+#' castr:::check_input(c(22.1, 23.4, 23.2), c(1, 2, 3))
+#' castr:::check_input(c(NA, NA, NA), c(1, 2, 3))
 #' \dontrun{
-#' check_input(c(22.1, 23.4, 23.2), c(1, 2))}
+#' castr:::check_input(c(22.1, 23.4, 23.2), c(1, 2))}
 check_input <- function(x, depth=NULL) {
   ok <- TRUE
   # check the input

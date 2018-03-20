@@ -18,8 +18,8 @@ TRUE when the data is ok, FALSE when it is fully missing, FALSE and throws an er
 Check that the input data is usable as a CTD cast (not fully missing and of compatible length). Used by other functions.
 }
 \examples{
-check_input(c(22.1, 23.4, 23.2), c(1, 2, 3))
-check_input(c(NA, NA, NA), c(1, 2, 3))
+castr:::check_input(c(22.1, 23.4, 23.2), c(1, 2, 3))
+castr:::check_input(c(NA, NA, NA), c(1, 2, 3))
 \dontrun{
-check_input(c(22.1, 23.4, 23.2), c(1, 2))}
+castr:::check_input(c(22.1, 23.4, 23.2), c(1, 2))}
 }

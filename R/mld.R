@@ -6,6 +6,7 @@
 #' @param criteria value(s) considered as thresholds for the computation of the depth of the mixed layer. The thresholds are tried successively.
 #' @param default.depth when no threshold is crossed, return this value instead; a usual value is the full depth of the water column (or `max(depth)`).
 #' @param n.smooth integer, number of times to smooth the data before applying the mixed layer criteria.
+#' @inheritParams maxd
 #'
 #' @details The mixed layer depth (MLD) is detected following de Boyer Montegut et al (2004): a reference value for density is taken near the surface and the water column is considered to be mixed until the depth at which density deviates from this refence by more than 0.03 kg/m^3. Optionally, when no depth satisfies this criterion, a second criterion of 0.01 kg/m^3 can be considered (as is by default).
 #'
@@ -28,7 +29,7 @@
 #' # Compare with the depth of the pycnocline
 #' pycnocline <- clined(d$sigma, d$depth)
 #' abline(h=-pycnocline, col="blue")
-mld <- function(x, depth, ref.depths=5:10, criteria=c(0.03, 0.01), default.depth=NA, n.smooth=0, k=2, ...) {
+mld <- function(x, depth, ref.depths=5:10, criteria=c(0.03, 0.01), default.depth=NA, n.smooth=0, k=2) {
   # check input
   ok <- check_input(x, depth)
   if (!ok) { return(NA) }

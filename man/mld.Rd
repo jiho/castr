@@ -5,7 +5,7 @@
 \title{Detect the depth of the mixed layer}
 \usage{
 mld(x, depth, ref.depths = 5:10, criteria = c(0.03, 0.01),
-  default.depth = NA, n.smooth = 0, k = 2, ...)
+  default.depth = NA, n.smooth = 0, k = 2)
 }
 \arguments{
 \item{x}{vector of the variable of interest, usually potential or in situ density.}
@@ -19,6 +19,8 @@ mld(x, depth, ref.depths = 5:10, criteria = c(0.03, 0.01),
 \item{default.depth}{when no threshold is crossed, return this value instead; a usual value is the full depth of the water column (or \code{max(depth)}).}
 
 \item{n.smooth}{integer, number of times to smooth the data before applying the mixed layer criteria.}
+
+\item{k}{order of the moving average used for smoothing; the window size is 2k+1. NB: when data is smoothed, it should have been recorded at approximately regular intervals for the moving average to make sense.}
 }
 \value{
 If no criterion is met, return \code{default.depth}. If a criterion is met return the last depth at which it was not.

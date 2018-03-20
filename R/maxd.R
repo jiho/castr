@@ -21,7 +21,7 @@
 #' # find the region of the maximum, along a smoothed cast
 #' DCM <- maxd(d$fluo, d$depth, n.smooth=3, k=3)
 #' abline(h=-DCM, col="chartreuse4")
-maxd <- function(x, depth=NULL, n.smooth=1, k=2, ...) {
+maxd <- function(x, depth=NULL, n.smooth=1, k=2) {
   # check input
   ok <- check_input(x, depth)
   if (!ok) { return(NA) }

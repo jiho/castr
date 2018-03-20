@@ -6,7 +6,7 @@
 #' @param fun function used to perform the integration; usually `\link[base:sum]{sum()}` or `\link[base:mean]{mean()}`.
 #' @param from depth at which to start the integration; by default 0.
 #' @param to depth at which to stop the integration; by default 100 m. Must be greater than `from`.
-#' @param ... passed to `\link[base:approx]{approx()}`; allows to choose the method for the interpolation: "linear" (the default) results in integration by trapezoids, "constant" with f=0 or f=1 results in integration by rectangles (and is often not optimal).
+#' @param ... passed to `\link[stats:approx]{approx()}`; allows to choose the method for the interpolation: "linear" (the default) results in integration by trapezoids, "constant" with f=0 or f=1 results in integration by rectangles (and is often not optimal).
 #'
 #' @details Integration is used to compute the stock of a quantity (Chlorophyll a, nutrients, etc.) in a given depth layer (when `fun` is `\link[base:sum]{sum()}`) of the average of a variable (temperature, density, etc.) in a layer (in which case, `fun` should be `\link[base:mean]{mean()}`). It is often used with discrete data coming from bottle samples and needs to be made continuous. Here, this is done by interpolating the data every meter, either using either linear or constant interpolation.
 #'
@@ -65,7 +65,7 @@ integrate <- function(x, depth, fun=sum, from=0, to=100, ...) {
         rm(range)
       }
       # perform the integration
-      y <- fun(approx(x=depth, y=x, xout=seq(from, to, by=1), rule=2, ...)$y, na.rm=TRUE)
+      y <- fun(stats::approx(x=depth, y=x, xout=seq(from, to, by=1), rule=2, ...)$y, na.rm=TRUE)
     }
   }
   return(y)

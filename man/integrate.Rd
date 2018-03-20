@@ -17,7 +17,7 @@ integrate(x, depth, fun = sum, from = 0, to = 100, ...)
 
 \item{to}{depth at which to stop the integration; by default 100 m. Must be greater than \code{from}.}
 
-\item{...}{passed to \code{\link[base:approx]{approx()}}; allows to choose the method for the interpolation: "linear" (the default) results in integration by trapezoids, "constant" with f=0 or f=1 results in integration by rectangles (and is often not optimal).}
+\item{...}{passed to \code{\link[stats:approx]{approx()}}; allows to choose the method for the interpolation: "linear" (the default) results in integration by trapezoids, "constant" with f=0 or f=1 results in integration by rectangles (and is often not optimal).}
 }
 \value{
 The value of the variable, integrated over the depth range.

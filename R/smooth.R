@@ -21,5 +21,5 @@ smooth <- function(x, k=1, n=1) {
   w <- c(1:k,k+1,k:1)
   w <- w / sum(w)
   # compute the (running) weighted moving average
-  rollapply(x, k=k, weighted.mean, na.rm=TRUE, w=w, n=n)
+  rollapply(x, k=k, stats::weighted.mean, na.rm=TRUE, w=w, n=n)
 }
