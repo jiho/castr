@@ -49,9 +49,11 @@
 #'     strat_index = stratif(sigma, depth, min.depths=0:5, max.depth=60:65),
 #'     DCM = maxd(fluo, depth, n.smooth=2, k=3),
 #'     MLD = mld(sigma, depth, ref.depths=0:5, default.depth=80),
-#'     # and the two following computations make use of variables that have
-#'     # been computed above: MLD and DCM
+#'     # it is even possible to use variables computed above to make the
+#'     # following computations adapted to each cast:
+#'     # average tempeature in the mixed layer only
 #'     temp_avg = integrate(temp, depth, from=0, to=MLD, fun=mean),
+#'     # stock of Chl a within 10 m of the DCM
 #'     chla_dcm_stock = integrate(fluo, depth, from=DCM-10, to=DCM+10)
 #'   )
 #' # Inspect the results
@@ -69,7 +71,7 @@
 #' # average temperature in the mixed layer shows the expected seasonality.
 #'
 #' ggplot(stats) + geom_path(aes(x=date, y=chla_dcm_stock))
-#' # the stock of chlorophyll (estimated by fluorescence) within 10 on
+#' # the stock of chlorophyll a (estimated by fluorescence) within 10 m on
 #' # either side of the DCM suggests that 2016 had a more productive DCM.
 #' }
 #'
