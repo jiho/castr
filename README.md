@@ -16,7 +16,7 @@ Finally, two small datasets are provided to test the functions: one with a singl
 
 The package is not on CRAN yet. Install it using
 
-```{r}
+```R
 # install.packages("devtools")
 devtools::install_github("jiho/castr")
 ```
@@ -25,7 +25,7 @@ devtools::install_github("jiho/castr")
 
 All functions in `castr` work on vectors and make few assumptions regarding your data. Therefore, they fit in the [`tidyverse`](https://www.tidyverse.org) philosophy and work well with [`dplyr`](http://dplyr.tidyverse.org) verbs, as shown in the example below.
 
-```{r}
+```R
 # We have a data.frame containing a time series of 41 CTD casts collected
 # at the same station over two years, identified by the date of sampling
 head(ctd)
