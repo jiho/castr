@@ -5,11 +5,11 @@ Version: 0.1.0
 Authors@R: person("Jean-Olivier", "Irisson", email="irisson@normalesup.org",
     role=c("aut", "cre"))
 Description: This package contains functions to process data collected
-    during CTD casts: smooth, despike, or integrate a variable, compute the
+    during CTD casts: smooth, despike, or integrate a variable; compute the
     depth of clines, of the deep chlorophyll maximum, of the bottom of the
-    mixed layer (MLD), the stratification index. It also provides utilities
-    to apply a function over a moving window along the cast, hence enabling
-    the computation of moving averages, medians, etc.
+    mixed layer (MLD); compute a stratification index. It also provides
+    utilities to apply a function over a moving window along the cast, hence
+    enabling the computation of moving averages, medians, etc.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
