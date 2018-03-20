@@ -49,7 +49,7 @@
 #' # not detected as spikes, for most of them (there are some false
 #' # positive). True spikes can be masked in the noise but those that can
 #' # reasonably be expected to be detected (that stand out), are.
-spikes <- function(x, k, mult=5.3, n.max=10) {
+spikes <- function(x, k=1, mult=5.3, n.max=10) {
 
   # initialise with no spikes
   spikes <- rep(FALSE, times=length(x))
@@ -86,7 +86,7 @@ spikes <- function(x, k, mult=5.3, n.max=10) {
 #' x <- c(10,10,12,11,33,15,12,11,11)
 #' plot(x, type="l")
 #' print(x)
-#' despike(x, k=1)
+#' despike(x)
 despike <- function(x, ...) {
   x[spikes(x, ...)] <- NA
   return(x)

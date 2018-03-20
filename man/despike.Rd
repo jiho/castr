@@ -18,7 +18,7 @@ Replace spikes by NA in a cast
 x <- c(10,10,12,11,33,15,12,11,11)
 plot(x, type="l")
 print(x)
-despike(x, k=1)
+despike(x)
 }
 \seealso{
 \code{\link[=spikes]{spikes()}} for the underlying computation.

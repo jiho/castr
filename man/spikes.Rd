@@ -4,7 +4,7 @@
 \alias{spikes}
 \title{Detect spikes in a cast}
 \usage{
-spikes(x, k, mult = 5.3, n.max = 10)
+spikes(x, k = 1, mult = 5.3, n.max = 10)
 }
 \arguments{
 \item{x}{vector of the variable of interest. It must have been recorded at approximately regular intervals (see \code{\link[=rollapply]{rollapply()}} as to why).}
