@@ -49,6 +49,9 @@
 #' plot(-depth ~ chla, data=d, type="b")
 #' integrate(d$chla, d$depth, from=0, to=100, fun=sum)
 integrate <- function(x, depth, fun=sum, from=0, to=100, ...) {
+  # check input
+  ok <- check_input(x, depth)
+  if (!ok) { return(NA) }
   if ( (sum(!is.na(x) & !is.na(depth)) < 2)){
     warning("Not enough non-missing data to integrate, returning NA")
     y <- NA
