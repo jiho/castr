@@ -1,4 +1,4 @@
-#' Apply a function in a sliding widow along a vector
+#' Apply a function in a sliding window along a vector
 #'
 #' Allows to compute a moving average, moving median, or even moving standard deviation, etc. in a generic way.
 #'

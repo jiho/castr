@@ -2,7 +2,7 @@
 % Please edit documentation in R/slide.R
 \name{slide}
 \alias{slide}
-\title{Apply a function in a sliding widow along a vector}
+\title{Apply a function in a sliding window along a vector}
 \usage{
 slide(x, k, fun, n = 1, ...)
 }
