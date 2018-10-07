@@ -9,7 +9,7 @@ smooth(x, k = 1, n = 1)
 \arguments{
 \item{x}{vector of the variable of interest. It must have been recorded at approximately regular intervals (see \code{\link[=slide]{slide()}} as to why).}
 
-\item{k}{order of the moving window; the window size is 2k+1.}
+\item{k}{order of the window; the window size is 2k+1.}
 
 \item{n}{number of times to smooth the data.}
 }

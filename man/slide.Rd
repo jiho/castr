@@ -9,7 +9,7 @@ slide(x, k, fun, n = 1, ...)
 \arguments{
 \item{x}{input numeric vector.}
 
-\item{k}{order of the moving window; the window size is 2k+1.}
+\item{k}{order of the window; the window size is 2k+1.}
 
 \item{fun}{function to apply in the moving window.}
 
@@ -42,9 +42,9 @@ mav   <- slide(x, 3, mean, na.rm=TRUE)
 # running moving average
 rmav  <- slide(x, 3, mean, na.rm=TRUE, n=4)
 # weighted moving average
-wmav  <- slide(x, 3, weighted.mean, na.rm=TRUE, w=c(1,2,3,4,3,2,1)/16)
+wmav  <- slide(x, 3, weighted.mean, na.rm=TRUE, w=cweights(3))
 # weighted running moving average
-wrmav <- slide(x, 3, weighted.mean, na.rm=TRUE, w=c(1,2,3,4,3,2,1)/16, n=4)
+wrmav <- slide(x, 3, weighted.mean, na.rm=TRUE, w=cweights(3), n=4)
 # moving median
 mmed  <- slide(x, 3, median, na.rm=TRUE)
 lines(mav, col="red")
@@ -55,4 +55,7 @@ lines(mmed, col="blue")
 # inspect variability around filtered data
 plot(slide(x-rmav, 7, sd))
 plot(slide(x-mmed, 7, mad))
+}
+\seealso{
+\code{\link[=cweights]{cweights()}} to compute weights centered in the middle of the window.
 }

@@ -9,7 +9,7 @@ spikes(x, k = 1, mult = 5.3, n.max = 10)
 \arguments{
 \item{x}{vector of the variable of interest. It must have been recorded at approximately regular intervals (see \code{\link[=slide]{slide()}} as to why).}
 
-\item{k}{order of the moving window; the window size is 2k+1.}
+\item{k}{order of the window; the window size is 2k+1.}
 
 \item{mult}{number by which to multiply the median absolute deviation to set the threshold to flag a data point as a spike.}
 

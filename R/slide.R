@@ -3,7 +3,7 @@
 #' Allows to compute a moving average, moving median, or even moving standard deviation, etc. in a generic way.
 #'
 #' @param x input numeric vector.
-#' @param k order of the moving window; the window size is 2k+1.
+#' @param k order of the window; the window size is 2k+1.
 #' @param fun function to apply in the moving window.
 #' @param n number of times to pass the function over the data.
 #' @param ... arguments passed to `fun`. A usual one is `na.rm=TRUE` to avoid getting `NA`s at the extremities of `x`.
@@ -17,6 +17,8 @@
 #' @return The data passed through `fun`, `n` times.
 #' @export
 #'
+#' @seealso [cweights()] to compute weights centered in the middle of the window.
+#'
 #' @examples
 #' # create some data and add random noise
 #' xs <- sin(seq(0, 4*pi, length=100))
@@ -29,9 +31,9 @@
 #' # running moving average
 #' rmav  <- slide(x, 3, mean, na.rm=TRUE, n=4)
 #' # weighted moving average
-#' wmav  <- slide(x, 3, weighted.mean, na.rm=TRUE, w=c(1,2,3,4,3,2,1)/16)
+#' wmav  <- slide(x, 3, weighted.mean, na.rm=TRUE, w=cweights(3))
 #' # weighted running moving average
-#' wrmav <- slide(x, 3, weighted.mean, na.rm=TRUE, w=c(1,2,3,4,3,2,1)/16, n=4)
+#' wrmav <- slide(x, 3, weighted.mean, na.rm=TRUE, w=cweights(3), n=4)
 #' # moving median
 #' mmed  <- slide(x, 3, median, na.rm=TRUE)
 #' lines(mav, col="red")
