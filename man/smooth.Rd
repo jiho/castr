@@ -7,7 +7,7 @@
 smooth(x, k = 1, n = 1)
 }
 \arguments{
-\item{x}{vector of the variable of interest. It must have been recorded at approximately regular intervals (see \code{\link[=rollapply]{rollapply()}} as to why).}
+\item{x}{vector of the variable of interest. It must have been recorded at approximately regular intervals (see \code{\link[=slide]{slide()}} as to why).}
 
 \item{k}{order of the moving window; the window size is 2k+1.}
 
@@ -26,5 +26,5 @@ lines(-depth ~ smooth(fluo, k=2, n=5), data=d, type="l", col="blue")
 legend(1, 0, legend=c("k=1, n=1", "k=2, n=5"), col=c("red", "blue"), lty="solid")
 }
 \seealso{
-\code{\link[=rollapply]{rollapply()}} for the underlying implementation.
+\code{\link[=slide]{slide()}} for the underlying implementation.
 }

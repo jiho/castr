@@ -18,7 +18,7 @@
 #' @return A logical vector, as long as `x`, containing TRUE for points that are considered as spikes, FALSE for others.
 #' @export
 #'
-#' @seealso [despike()] for a shortcut to just remove spikes from a profile and [rollapply()] for the underlying implementation of the moving median and mad.
+#' @seealso [despike()] for a shortcut to just remove spikes from a profile and [slide()] for the underlying implementation of the moving median and mad.
 #'
 #' @examples
 #' # create fake data
@@ -57,10 +57,10 @@ spikes <- function(x, k=1, mult=5.3, n.max=10) {
   # repeat spike detection at most n.max times
   for (i in 1:n.max) {
     # compute the anomaly to the median
-    mmed <- rollapply(x, k=k, stats::median, na.rm=TRUE, n=3)
+    mmed <- slide(x, k=k, stats::median, na.rm=TRUE, n=3)
     anom <- x - mmed
     # detect when this anomaly is larger than a threshold based on the inherent variability of the data
-    mmad <- rollapply(x, k=k*2, stats::mad, na.rm=TRUE)
+    mmad <- slide(x, k=k*2, stats::mad, na.rm=TRUE)
     # NB: make the window larger here to better capture the local variability
     s <- (abs(anom) > mmad * mult) & (mmad > 0)
 

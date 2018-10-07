@@ -10,7 +10,7 @@
 #' @export
 #'
 #' @family functions computing remarkable depths
-#' @seealso [rollapply()] for the underlying implementation of the moving standard deviation, [smooth()] for smoothing.
+#' @seealso [slide()] for the underlying implementation of the moving standard deviation, [smooth()] for smoothing.
 #'
 #' @examples
 #' plot(-depth ~ temp, data=d, type="l")
@@ -29,7 +29,7 @@ clined <- function(x, depth=NULL, n.smooth=0, k=2) {
   x <- smooth(x, k=k, n=n.smooth)
 
   # compute the standard deviation
-  s <- rollapply(x, k=k, stats::sd, na.rm=TRUE)
+  s <- slide(x, k=k, stats::sd, na.rm=TRUE)
   # get its maximum
   i <- which.max(s)
 

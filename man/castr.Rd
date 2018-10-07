@@ -12,7 +12,7 @@ This package contains functions to process data collected during CTD casts:
 \item compute the depth of clines with \code{\link[=clined]{clined()}}, of the deep chlorophyll maximum with \code{\link[=maxd]{maxd()}}, of the bottom of the mixed layer with \code{\link[=mld]{mld()}};
 \item compute a stratification index with \code{\link[=stratif]{stratif()}}
 }
-It also provides utilities to apply a function in a moving window along the cast (\code{\link[=rollapply]{rollapply()}}), hence enabling the computation of moving averages (to \code{\link[=smooth]{smooth()}} the data), medians (to detect \code{\link[=spikes]{spikes()}}), etc.
+It also provides utilities to apply a function in a moving window along the cast (\code{\link[=slide]{slide()}}), hence enabling the computation of moving averages (to \code{\link[=smooth]{smooth()}} the data), medians (to detect \code{\link[=spikes]{spikes()}}), etc.
 Finally, two small datasets are provided to test the functions: one with a single cast (\link{d}) and another one with 41 casts (\link{ctd}).
 }
 \section{Usage}{

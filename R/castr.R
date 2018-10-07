@@ -6,7 +6,7 @@
 #' \item compute the depth of clines with [clined()], of the deep chlorophyll maximum with [maxd()], of the bottom of the mixed layer with [mld()];
 #' \item compute a stratification index with [stratif()]
 #' }
-#' It also provides utilities to apply a function in a moving window along the cast ([rollapply()]), hence enabling the computation of moving averages (to [smooth()] the data), medians (to detect [spikes()]), etc.
+#' It also provides utilities to apply a function in a moving window along the cast ([slide()]), hence enabling the computation of moving averages (to [smooth()] the data), medians (to detect [spikes()]), etc.
 #' Finally, two small datasets are provided to test the functions: one with a single cast ([d]) and another one with 41 casts ([ctd]).
 #'
 #' @section Usage:

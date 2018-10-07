@@ -7,7 +7,7 @@
 spikes(x, k = 1, mult = 5.3, n.max = 10)
 }
 \arguments{
-\item{x}{vector of the variable of interest. It must have been recorded at approximately regular intervals (see \code{\link[=rollapply]{rollapply()}} as to why).}
+\item{x}{vector of the variable of interest. It must have been recorded at approximately regular intervals (see \code{\link[=slide]{slide()}} as to why).}
 
 \item{k}{order of the moving window; the window size is 2k+1.}
 
@@ -61,5 +61,5 @@ points(y ~ x, data=df[spikes(df$y, k=3, mult=2),], col="red")
 # reasonably be expected to be detected (that stand out), are.
 }
 \seealso{
-\code{\link[=despike]{despike()}} for a shortcut to just remove spikes from a profile and \code{\link[=rollapply]{rollapply()}} for the underlying implementation of the moving median and mad.
+\code{\link[=despike]{despike()}} for a shortcut to just remove spikes from a profile and \code{\link[=slide]{slide()}} for the underlying implementation of the moving median and mad.
 }

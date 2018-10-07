@@ -7,7 +7,7 @@
 clined(x, depth = NULL, n.smooth = 0, k = 2)
 }
 \arguments{
-\item{x}{vector of the variable of interest. It must have been recorded at approximately regular intervals (see \code{\link[=rollapply]{rollapply()}} as to why).}
+\item{x}{vector of the variable of interest. It must have been recorded at approximately regular intervals (see \code{\link[=slide]{slide()}} as to why).}
 
 \item{depth}{vector of depths at which \code{x} is measured; optional.}
 
@@ -31,7 +31,7 @@ halocline <- clined(d$sal, d$depth)
 abline(h=-halocline, col="red")
 }
 \seealso{
-\code{\link[=rollapply]{rollapply()}} for the underlying implementation of the moving standard deviation, \code{\link[=smooth]{smooth()}} for smoothing.
+\code{\link[=slide]{slide()}} for the underlying implementation of the moving standard deviation, \code{\link[=smooth]{smooth()}} for smoothing.
 
 Other functions computing remarkable depths: \code{\link{maxd}},
   \code{\link{mld}}

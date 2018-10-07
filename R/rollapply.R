@@ -1,6 +1,6 @@
-#' Apply a function in a rolling window along a vector
+#' Apply a function in a sliding widow along a vector
 #'
-#' Allows to compute a moving average, median, standard deviation, median absolute deviation, etc. in a generic way.
+#' Allows to compute a moving average, moving median, or even moving standard deviation, etc. in a generic way.
 #'
 #' @param x input numeric vector.
 #' @param k order of the moving window; the window size is 2k+1.
@@ -10,9 +10,11 @@
 #'
 #' @details A window of size `2k+1` is centred on element `i` of `x`. All elements from index `i-k` to index `i+k` are sent to function `fun`. The returned value is associated with index `i` in the result. The window is moved to element `i+1` and so on.
 #'
-#' For such rolling window computation to make sense, the data must be recorded on a regular coordinate (i.e. at regular intervals). Otherwise, data points that are far from each other may end up in the same window.
+#' For such sliding window computation to make sense, the data must be recorded on a regular coordinate (i.e. at regular intervals). Otherwise, data points that are far from each other may end up in the same window.
 #'
-#' @return The data passed through `fun`, `n` times. Note that the result is as long as the input vector because the data is padded with `NA` to allow centring the window from the first to the last element of `x`.
+#' The extremeties of the input vector are padded with `NA` to be able to center the sliding window from the first to the last elements. This means that, to avoid getting `k` missing values at the beginning and at the end of the result, `na.rm=TRUE` should be passed to `fun`.
+#'
+#' @return The data passed through `fun`, `n` times.
 #' @export
 #'
 #' @examples
@@ -23,24 +25,24 @@
 #' lines(xs)
 #' # filter the data in various ways
 #' # moving average
-#' mav   <- rollapply(x, 3, mean, na.rm=TRUE)
+#' mav   <- slide(x, 3, mean, na.rm=TRUE)
 #' # running moving average
-#' rmav  <- rollapply(x, 3, mean, na.rm=TRUE, n=4)
+#' rmav  <- slide(x, 3, mean, na.rm=TRUE, n=4)
 #' # weighted moving average
-#' wmav  <- rollapply(x, 3, weighted.mean, na.rm=TRUE, w=c(1,2,3,4,3,2,1)/16)
+#' wmav  <- slide(x, 3, weighted.mean, na.rm=TRUE, w=c(1,2,3,4,3,2,1)/16)
 #' # weighted running moving average
-#' wrmav <- rollapply(x, 3, weighted.mean, na.rm=TRUE, w=c(1,2,3,4,3,2,1)/16, n=4)
+#' wrmav <- slide(x, 3, weighted.mean, na.rm=TRUE, w=c(1,2,3,4,3,2,1)/16, n=4)
 #' # moving median
-#' mmed  <- rollapply(x, 3, median, na.rm=TRUE)
+#' mmed  <- slide(x, 3, median, na.rm=TRUE)
 #' lines(mav, col="red")
 #' lines(rmav, col="red", lty="dashed")
 #' lines(wmav, col="orange")
 #' lines(wrmav, col="orange", lty="dashed")
 #' lines(mmed, col="blue")
 #' # inspect variability around filtered data
-#' plot(rollapply(x-rmav, 7, sd))
-#' plot(rollapply(x-mmed, 7, mad))
-rollapply <- function(x, k, fun, n=1, ...) {
+#' plot(slide(x-rmav, 7, sd))
+#' plot(slide(x-mmed, 7, mad))
+slide <- function(x, k, fun, n=1, ...) {
   if (n>=1) {
     # repeat n times
     for (t in 1:n) {

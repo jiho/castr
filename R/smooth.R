@@ -2,14 +2,14 @@
 #'
 #' Smooth a variable in a cast using a weighted moving average.
 #'
-#' @inheritParams rollapply
-#' @param x vector of the variable of interest. It must have been recorded at approximately regular intervals (see [rollapply()] as to why).
+#' @inheritParams slide
+#' @param x vector of the variable of interest. It must have been recorded at approximately regular intervals (see [slide()] as to why).
 #' @param n number of times to smooth the data.
 #'
 #' @return A vector containing the smoothed variable, containing as many elements as the original variable.
 #' @export
 #'
-#' @seealso [rollapply()] for the underlying implementation.
+#' @seealso [slide()] for the underlying implementation.
 #'
 #' @examples
 #' plot(-depth ~ fluo, data=d)
@@ -21,5 +21,5 @@ smooth <- function(x, k=1, n=1) {
   w <- c(1:k,k+1,k:1)
   w <- w / sum(w)
   # compute the (running) weighted moving average
-  rollapply(x, k=k, stats::weighted.mean, na.rm=TRUE, w=w, n=n)
+  slide(x, k=k, stats::weighted.mean, na.rm=TRUE, w=w, n=n)
 }
