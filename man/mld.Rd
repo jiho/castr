@@ -51,3 +51,4 @@ de Boyer Montegut et al (2004). Mixed layer depth over the global ocean: An exam
 Other functions computing remarkable depths: \code{\link{clined}},
   \code{\link{maxd}}
 }
+\concept{functions computing remarkable depths}

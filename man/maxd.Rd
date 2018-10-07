@@ -36,3 +36,4 @@ abline(h=-DCM, col="chartreuse4")
 Other functions computing remarkable depths: \code{\link{clined}},
   \code{\link{mld}}
 }
+\concept{functions computing remarkable depths}

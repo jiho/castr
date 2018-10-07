@@ -36,3 +36,4 @@ abline(h=-halocline, col="red")
 Other functions computing remarkable depths: \code{\link{maxd}},
   \code{\link{mld}}
 }
+\concept{functions computing remarkable depths}
