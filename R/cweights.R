@@ -13,7 +13,7 @@
 #' plot(cweights(4, 0.1), type="b")
 #'
 #' # Compare a simple moving average with a weighted moving average
-#' sed.seed(1)
+#' set.seed(1)
 #' x <- sin(1:100/10) + rnorm(100, sd=0.5)
 #' plot(x)
 #' xm <- slide(x, k=2, mean, na.rm=TRUE)
