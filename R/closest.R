@@ -54,7 +54,7 @@ which.closest <- function(from, within, outside=TRUE) {
   order_within <- order(within)
 
   # find closest matches on sorted versions of the inputs
-  i <- round(approx(x=within[order_within], y=1:length(within), xout=from[order_from], rule=ifelse(outside, 2, 1))$y)
+  i <- round(stats::approx(x=within[order_within], y=1:length(within), xout=from[order_from], rule=ifelse(outside, 2, 1))$y)
 
   # "unsort" back to the original order
   order_within[i][rank_from]
