@@ -33,13 +33,16 @@
 #' rug(xout, col="red")
 #' points(xout, interpolate(x, y, xout, method="spline"), col="red")
 interpolate <- function(x, y, xout, method="linear", extrapolate=TRUE) {
+  # remove NAs in input
+  # they are useless for interpolation and cause trouble with contstant interpolation: the nearest neighbour picked may be NA
   d <- stats::na.omit(data.frame(x, y))
   interpol(d$x, d$y, xout=xout, method=method, extrapolate=extrapolate)
 }
+
 interpol <- function(x, y, xout, method="linear", extrapolate=TRUE) {
   UseMethod("interpol", y)
 }
-#' @export
+
 interpol.default <- function(x, y, xout, method="linear", extrapolate=TRUE) {
   method <- match.arg(method, choices=c("constant", "linear", "spline"))
   fi <- switch(method,
@@ -50,9 +53,9 @@ interpol.default <- function(x, y, xout, method="linear", extrapolate=TRUE) {
 
   fi(xout)
 }
-#' @export
+
 interpol.factor <- function(x, y, xout, method="constant", extrapolate=TRUE) {
   y[which.closest(from=xout, within=x, outside=extrapolate)]
 }
-#' @export
+
 interpol.character <- interpol.factor
