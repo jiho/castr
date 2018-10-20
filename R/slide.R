@@ -45,6 +45,11 @@
 #' plot(slide(x-rmav, 7, sd))
 #' plot(slide(x-mmed, 7, mad))
 slide <- function(x, k, fun, n=1, ...) {
+  # make sure to get a function as the `fun` argument (i.e. avoid name masking)
+  if (!is.function(fun)) {
+    fun <- get(as.character(substitute(fun)), mode="function")
+  }
+
   if (n>=1) {
     # repeat n times
     for (t in 1:n) {

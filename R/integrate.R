@@ -67,6 +67,11 @@ integrate <- function(x, depth, fun=sum, from=0, to=100, ...) {
         to <- range[2]
         rm(range)
       }
+      # make sure to get a function as the `fun` argument (i.e. avoid name masking)
+      if (!is.function(fun)) {
+        fun <- get(as.character(substitute(fun)), mode="function")
+      }
+
       # perform the integration
       y <- fun(stats::approx(x=depth, y=x, xout=seq(from, to, by=1), rule=2, ...)$y, na.rm=TRUE)
     }
