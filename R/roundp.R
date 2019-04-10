@@ -2,7 +2,7 @@
 #'
 #' @param x vector of values, can be numeric, POSIXct, Date.
 #' @param precision precision at which to round, in the unit of `x` (for POSIXct, seconds; for Date, days).
-#' @param f rouding function: [base::floor()], [base::ceiling()], and , [base::round()]
+#' @param f rounding function: [base::floor()], [base::ceiling()], and , [base::round()]
 #'
 #' @return A vector of the same length as x, rounded to precision.
 #' @export

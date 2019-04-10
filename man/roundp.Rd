@@ -11,7 +11,7 @@ roundp(x, precision, f = round)
 
 \item{precision}{precision at which to round, in the unit of \code{x} (for POSIXct, seconds; for Date, days).}
 
-\item{f}{rouding function: \code{\link[base:floor]{base::floor()}}, \code{\link[base:ceiling]{base::ceiling()}}, and , \code{\link[base:round]{base::round()}}}
+\item{f}{rounding function: \code{\link[base:floor]{base::floor()}}, \code{\link[base:ceiling]{base::ceiling()}}, and , \code{\link[base:round]{base::round()}}}
 }
 \value{
 A vector of the same length as x, rounded to precision.
