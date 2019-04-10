@@ -32,4 +32,12 @@ roundp(Sys.time(), 3600)
 
 roundp(Sys.Date() + 1:5, 2)
 roundp(Sys.Date() + 1:5, 2, floor)
+
+# useful to bin data over a coordinate (or time)
+library("dplyr")
+d \%>\%
+  # bin depth over 10m
+  mutate(bin=roundp(depth, 10)) \%>\%
+  # average each variables in each bin
+  group_by(bin) \%>\% summarise_all(mean)
 }
