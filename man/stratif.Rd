@@ -4,7 +4,8 @@
 \alias{stratif}
 \title{Compute an index of stratification}
 \usage{
-stratif(x, depth, min.depths, max.depths, n.smooth = 0, k = 2)
+stratif(x, depth, min.depths, max.depths, n.smooth = 0, k = 2,
+  fun = mean)
 }
 \arguments{
 \item{x}{vector of the variable of interest, usually potential or in situ density.}
@@ -13,11 +14,13 @@ stratif(x, depth, min.depths, max.depths, n.smooth = 0, k = 2)
 
 \item{min.depths}{depth(s) of reference, near the surface; when \code{min.depths} is a vector, the value of x is averaged between those depths.}
 
-\item{max.depths}{similar to \code{min.depths} but at the bottom}
+\item{max.depths}{similar to \code{min.depths} but at the bottom.}
 
 \item{n.smooth}{integer, number of times to smooth the data before applying the mixed layer criteria.}
 
 \item{k}{order of the moving average used for smoothing; the window size is 2k+1. NB: when data is smoothed, it should have been recorded at approximately regular intervals for the moving average to make sense.}
+
+\item{fun}{function used to summarise the values over \code{min.depths} and \code{max.depths}; typically this is \code{mean} but \code{median} could be used for a more robust estimate.}
 }
 \value{
 The value of the stratification index.
@@ -30,6 +33,7 @@ Compute the difference in a given variable between a two depth layers, usually t
 plot(-depth ~ sigma, data=d, type="l")
 abline(h=-c(1, 5, 61, 65), col="red")
 stratif(d$sigma, d$depth, min.depths=1:5, max.depths=61:65)
+stratif(d$sigma, d$depth, min.depths=1:5, max.depths=61:65, fun=median)
 
 # estimate the intensity of the peak of chlorophyll at the deep
 # chlorophyll maximum

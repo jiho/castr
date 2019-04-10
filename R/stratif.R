@@ -4,7 +4,8 @@
 #'
 #' @inheritParams mld
 #' @param min.depths depth(s) of reference, near the surface; when `min.depths` is a vector, the value of x is averaged between those depths.
-#' @param max.depths similar to `min.depths` but at the bottom
+#' @param max.depths similar to `min.depths` but at the bottom.
+#' @param fun function used to summarise the values over `min.depths` and `max.depths`; typically this is `mean` but `median` could be used for a more robust estimate.
 #'
 #' @return The value of the stratification index.
 #' @export
@@ -16,6 +17,7 @@
 #' plot(-depth ~ sigma, data=d, type="l")
 #' abline(h=-c(1, 5, 61, 65), col="red")
 #' stratif(d$sigma, d$depth, min.depths=1:5, max.depths=61:65)
+#' stratif(d$sigma, d$depth, min.depths=1:5, max.depths=61:65, fun=median)
 #'
 #' # estimate the intensity of the peak of chlorophyll at the deep
 #' # chlorophyll maximum
@@ -23,7 +25,7 @@
 #' DCM <- maxd(d$fluo, d$depth, n.smooth=2)
 #' abline(h=-c(0, 2, DCM-2, DCM+2), col="chartreuse4")
 #' stratif(d$fluo, d$depth, min.depths=0:2, max.depths=c(DCM-2, DCM+2))
-stratif <- function(x, depth, min.depths, max.depths, n.smooth=0, k=2) {
+stratif <- function(x, depth, min.depths, max.depths, n.smooth=0, k=2, fun=mean) {
   # check input
   ok <- check_input(x, depth)
   if (!ok) { return(NA) }
@@ -37,5 +39,8 @@ stratif <- function(x, depth, min.depths, max.depths, n.smooth=0, k=2) {
   # TODO divide by depth range? add a standardize argument defaulting to FALSE?
 
   # compute the index
-  abs(mean(x[imin], na.rm=TRUE) - mean(x[imax], na.rm=TRUE))
+  if (!is.function(fun)) {
+    fun <- get(as.character(substitute(fun)), mode="function")
+  }
+  abs(fun(x[imin], na.rm=TRUE) - fun(x[imax], na.rm=TRUE))
 }
