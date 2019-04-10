@@ -9,7 +9,7 @@
 \item{depth}{depth, in m, positive towards the bottom}
 \item{temp}{temperature, in degrees Celsius}
 \item{sal}{salinity, in PSU}
-\item{fluo}{fluorescence of Chlorophyll a, in mg/m^3}
+\item{chla}{chlorophyll a concentration estimated through fluorescence, in mg/m^3}
 \item{sigma}{potential density, in kg/m^3 - 1000}
 }}
 \usage{
@@ -22,7 +22,7 @@ A dataset representing a single CTD cast.
 head(d)
 plot(-depth ~ temp,  data=d, type="b")
 plot(-depth ~ sal,   data=d, type="b")
-plot(-depth ~ fluo,  data=d, type="b")
+plot(-depth ~ chla,  data=d, type="b")
 plot(-depth ~ sigma, data=d, type="b")
 }
 \keyword{datasets}

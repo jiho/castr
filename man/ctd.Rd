@@ -10,7 +10,7 @@
 \item{depth}{depth, in m, positive towards the bottom}
 \item{temp}{temperature, in degrees Celsius}
 \item{sal}{salinity, in PSU}
-\item{fluo}{fluorescence of Chlorophyll a, in mg/m^3}
+\item{chla}{chlorophyll a concentration estimated through fluorescence, in mg/m^3}
 \item{sigma}{potential density, in kg/m^3 - 1000}
 }}
 \usage{
@@ -29,7 +29,7 @@ plot_casts <- function(formula, x) {
 }
 plot_casts(-depth ~ temp, ctd)
 plot_casts(-depth ~ sal, ctd)
-plot_casts(-depth ~ fluo, ctd)
+plot_casts(-depth ~ chla, ctd)
 plot_casts(-depth ~ sigma, ctd)
 }
 \keyword{datasets}

@@ -21,10 +21,10 @@
 #'
 #' # estimate the intensity of the peak of chlorophyll at the deep
 #' # chlorophyll maximum
-#' plot(-depth ~ fluo, data=d, type="l")
-#' DCM <- maxd(d$fluo, d$depth, n.smooth=2)
+#' plot(-depth ~ chla, data=d, type="l")
+#' DCM <- maxd(d$chla, d$depth, n.smooth=2)
 #' abline(h=-c(0, 2, DCM-2, DCM+2), col="chartreuse4")
-#' stratif(d$fluo, d$depth, min.depths=0:2, max.depths=c(DCM-2, DCM+2))
+#' stratif(d$chla, d$depth, min.depths=0:2, max.depths=c(DCM-2, DCM+2))
 stratif <- function(x, depth, min.depths, max.depths, n.smooth=0, k=2, fun=mean) {
   # check input
   ok <- check_input(x, depth)

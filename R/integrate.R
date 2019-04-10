@@ -14,22 +14,22 @@
 #' @export
 #'
 #' @examples
-#' # Stock of Chl a inferred from fluorescence
-#' plot(-depth ~ fluo, data=d, type="l")
+#' # Stock of chlorophyll a inferred from fluorescence
+#' plot(-depth ~ chla, data=d, type="l")
 #'
 #' # near the surface
-#' integrate(d$fluo, d$depth, from=0, to=50)
-#' integrate(d$fluo, d$depth, from=0, to=50, method="constant")
+#' integrate(d$chla, d$depth, from=0, to=50)
+#' integrate(d$chla, d$depth, from=0, to=50, method="constant")
 #'
 #' # around the Deep Chlorophyll Maximum
-#' DCM <- maxd(d$fluo, depth=d$depth)
-#' integrate(d$fluo, d$depth, from=DCM-10, to=DCM+10)
+#' DCM <- maxd(d$chla, depth=d$depth)
+#' integrate(d$chla, d$depth, from=DCM-10, to=DCM+10)
 #' # which amounts to this quantity
 #' d_DCM <- subset(d, depth > DCM-10 & depth < DCM+10)
 #' polygon(
-#'   x=c(d_DCM$fluo, rep(0, times=nrow(d_DCM))),
+#'   x=c(d_DCM$chla, rep(0, times=nrow(d_DCM))),
 #'   y=-c(d_DCM$depth, rev(d_DCM$depth)),
-#'   col="chartreuse2", border=NA
+#'   col="chartreuse3", border=NA
 #' )
 #' abline(h=-DCM, col="chartreuse4")
 #'

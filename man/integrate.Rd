@@ -29,22 +29,22 @@ Sum or average a given variable over a range of depths.
 Integration is used to compute the stock of a quantity (Chlorophyll a, nutrients, etc.) in a given depth layer (when \code{fun} is \code{\link[base:sum]{sum()}}) of the average of a variable (temperature, density, etc.) in a layer (in which case, \code{fun} should be \code{\link[base:mean]{mean()}}). It is often used with discrete data coming from bottle samples and needs to be made continuous. Here, this is done by interpolating the data every meter, either using either linear or constant interpolation.
 }
 \examples{
-# Stock of Chl a inferred from fluorescence
-plot(-depth ~ fluo, data=d, type="l")
+# Stock of chlorophyll a inferred from fluorescence
+plot(-depth ~ chla, data=d, type="l")
 
 # near the surface
-integrate(d$fluo, d$depth, from=0, to=50)
-integrate(d$fluo, d$depth, from=0, to=50, method="constant")
+integrate(d$chla, d$depth, from=0, to=50)
+integrate(d$chla, d$depth, from=0, to=50, method="constant")
 
 # around the Deep Chlorophyll Maximum
-DCM <- maxd(d$fluo, depth=d$depth)
-integrate(d$fluo, d$depth, from=DCM-10, to=DCM+10)
+DCM <- maxd(d$chla, depth=d$depth)
+integrate(d$chla, d$depth, from=DCM-10, to=DCM+10)
 # which amounts to this quantity
 d_DCM <- subset(d, depth > DCM-10 & depth < DCM+10)
 polygon(
-  x=c(d_DCM$fluo, rep(0, times=nrow(d_DCM))),
+  x=c(d_DCM$chla, rep(0, times=nrow(d_DCM))),
   y=-c(d_DCM$depth, rev(d_DCM$depth)),
-  col="chartreuse2", border=NA
+  col="chartreuse3", border=NA
 )
 abline(h=-DCM, col="chartreuse4")
 

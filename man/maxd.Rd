@@ -19,15 +19,15 @@ maxd(x, depth = NULL, n.smooth = 1, k = 2)
 When \code{depth} is \code{NULL}, return the index of \code{x} corresponding to the maximum, \code{i}. When \code{depth} is provided, return \code{depth[i]}, the value of the depth of the maximum.
 }
 \description{
-Find the index or depth of the maximum in a (possibly smoothed) variable along a cast. Useful to find the depth of the Deep Chlorophyll Maximum (DCM) from a fluorescence profile for example.
+Find the index or depth of the maximum in a (possibly smoothed) variable along a cast. Useful to find the depth of the Deep Chlorophyll Maximum (DCM) from a chlorophyll profile for example.
 }
 \examples{
-plot(-depth ~ fluo, data=d, type="l")
+plot(-depth ~ chla, data=d, type="l")
 # find the absolute maximum
-DCM <- maxd(d$fluo, d$depth, n.smooth=0)
+DCM <- maxd(d$chla, d$depth, n.smooth=0)
 abline(h=-DCM, col="chartreuse4", lty="dashed")
 # find the region of the maximum, along a smoothed cast
-DCM <- maxd(d$fluo, d$depth, n.smooth=3, k=3)
+DCM <- maxd(d$chla, d$depth, n.smooth=3, k=3)
 abline(h=-DCM, col="chartreuse4")
 }
 \seealso{

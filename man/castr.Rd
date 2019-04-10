@@ -42,12 +42,12 @@ ctd_clean <- ctd \%>\% group_by(date) \%>\%
   mutate(
     temp=despike(temp, mult=3),
     sal=despike(sal, mult=3),
-    fluo=despike(fluo, k=2, mult=4),
-    # NB: fluorescence is more spiky so be less stringent
+    chla=despike(chla, k=2, mult=4),
+    # NB: chlorophyll is more spiky so be less stringent
     sigma=despike(sigma, mult=3)
   )
 ggplot(ctd_clean) + geom_path(aes(x=sal, y=-depth, group=date), alpha=0.6)
-ggplot(ctd_clean) + geom_path(aes(x=fluo, y=-depth, group=date), alpha=0.6)
+ggplot(ctd_clean) + geom_path(aes(x=chla, y=-depth, group=date), alpha=0.6)
 
 # Now compute summary statistics on each despiked profile
 stats <- ctd_clean \%>\% group_by(date) \%>\%
@@ -55,14 +55,14 @@ stats <- ctd_clean \%>\% group_by(date) \%>\%
     thermocline = clined(temp, depth, n.smooth=2, k=2),
     pycnocline = clined(sigma, depth),
     strat_index = stratif(sigma, depth, min.depths=0:5, max.depth=60:65),
-    DCM = maxd(fluo, depth, n.smooth=2, k=3),
+    DCM = maxd(chla, depth, n.smooth=2, k=3),
     MLD = mld(sigma, depth, ref.depths=0:5, default.depth=80),
     # it is even possible to use variables computed above to make the
     # following computations adapted to each cast:
     # average tempeature in the mixed layer only
     temp_avg = integrate(temp, depth, from=0, to=MLD, fun=mean),
     # stock of Chl a within 10 m of the DCM
-    chla_dcm_stock = integrate(fluo, depth, from=DCM-10, to=DCM+10)
+    chla_dcm_stock = integrate(chla, depth, from=DCM-10, to=DCM+10)
   )
 # Inspect the results
 ggplot(stats) + geom_path(aes(x=date, y=-thermocline))
