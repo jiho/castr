@@ -56,7 +56,7 @@ slide <- function(x, k, fun, n=1, ...) {
       # pad the extremities of data to be able to compute over the whole vector
       x <- c(rep(NA, times=k), x, rep(NA, times=k))
 
-      # apply the rolling function (and and remove padding at the extremities)
+      # apply the rolling function (and remove padding at the extremities)
       x <- sapply((k+1):(length(x)-k), function(i) {
         fun(x[(i-k):(i+k)], ...)
       })
