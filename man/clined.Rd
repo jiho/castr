@@ -33,7 +33,8 @@ abline(h=-halocline, col="red")
 \seealso{
 \code{\link[=slide]{slide()}} for the underlying implementation of the moving standard deviation, \code{\link[=smooth]{smooth()}} for smoothing.
 
-Other functions computing remarkable depths: \code{\link{euphoticd}},
-  \code{\link{maxd}}, \code{\link{mld}}
+Other functions computing remarkable depths: \code{\link{maxd}},
+  \code{\link{mld}}, \code{\link{ze_from_chla}},
+  \code{\link{ze_from_par}}
 }
 \concept{functions computing remarkable depths}

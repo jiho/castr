@@ -49,6 +49,7 @@ de Boyer Montegut et al (2004). Mixed layer depth over the global ocean: An exam
 \code{\link[=smooth]{smooth()}} for smoothing.
 
 Other functions computing remarkable depths: \code{\link{clined}},
-  \code{\link{euphoticd}}, \code{\link{maxd}}
+  \code{\link{maxd}}, \code{\link{ze_from_chla}},
+  \code{\link{ze_from_par}}
 }
 \concept{functions computing remarkable depths}
