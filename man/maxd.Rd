@@ -34,6 +34,6 @@ abline(h=-DCM, col="chartreuse4")
 \code{\link[=smooth]{smooth()}} for smoothing.
 
 Other functions computing remarkable depths: \code{\link{clined}},
-  \code{\link{mld}}
+  \code{\link{euphoticd}}, \code{\link{mld}}
 }
 \concept{functions computing remarkable depths}
