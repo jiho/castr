@@ -23,10 +23,10 @@
 #'
 #' @examples
 #' plot(-depth ~ chla, data=d, type="l")
-#' Ze <- ze_from_chla(chla, depth)
+#' Ze <- ze_from_chla(d$chla, d$depth)
 #' abline(h=-Ze, col="chartreuse4")
 #'
-#' Ze <- ze_from_chla(chla, depth, fit="poly")
+#' Ze <- ze_from_chla(d$chla, d$depth, fit="poly")
 #' # same result
 ze_from_chla <- function(chla, depth, fit=c("piecewise-linear", "polynomial")) {
   ok <- check_input(chla, depth)
@@ -44,16 +44,21 @@ ze_from_chla <- function(chla, depth, fit=c("piecewise-linear", "polynomial")) {
     ze1 <- 912.5*integrated_chla^(-0.839)
     ze2 <- 426.3*integrated_chla^(-0.547)
     ze <- ifelse(ze1 < 102, ze1, ze2)
-    ze <- ifelse(ze < 10 | ze > 180, NA, ze)
+    ze[ze < 10] <- NA
   } else {
     lchla <- log10(integrated_chla)
     lze <- 2.1236 + 0.932468*lchla - 1.4264*lchla^2 + 0.52776*lchla^3 - 0.07617*lchla^4
     ze <- 10^lze
-    ze <- ifelse(ze < 5 | ze > 180, NA, ze)
+    ze[ze < 5] <- NA
   }
 
   # the lower limit is the depth at which ze becomes < depth
   ze <- df$depth[min(which(ze < df$depth))]
+
+  # ze tends towards 183m in pure water, the formula is only valid until 180m
+  if (ze > 180) {
+    ze <- 180
+  }
 
   return(ze)
 }

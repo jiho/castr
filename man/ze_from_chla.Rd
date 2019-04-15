@@ -26,10 +26,10 @@ The piecewise linear relationship is valid for \code{Ze} in \code{[10, 180]} whi
 }
 \examples{
 plot(-depth ~ chla, data=d, type="l")
-Ze <- ze_from_chla(chla, depth)
+Ze <- ze_from_chla(d$chla, d$depth)
 abline(h=-Ze, col="chartreuse4")
 
-Ze <- ze_from_chla(chla, depth, fit="poly")
+Ze <- ze_from_chla(d$chla, d$depth, fit="poly")
 # same result
 }
 \references{
