@@ -53,11 +53,23 @@ ze_from_chla <- function(chla, depth, fit=c("piecewise-linear", "polynomial")) {
   }
 
   # the lower limit is the depth at which ze becomes < depth
-  ze <- df$depth[min(which(ze < df$depth))]
-
-  # ze tends towards 183m in pure water, the formula is only valid until 180m
-  if (ze > 180) {
-    ze <- 180
+  limit <- ze < df$depth
+  if (any(limit)) {
+    # when this happens, get the corresponding depth
+    ze <- df$depth[min(which(limit))]
+    # ze tends towards 183m in pure water and cannot physically be deepter
+    # but the formula is only valid until 180m
+    # so when ze is too deep, set it to the maximum
+    if (ze > 180) {
+      ze <- 180
+    }    
+  } else {
+    # when this is never true, ze is deeper than the maximum depth (or is the theoretical maximum)
+    ze <- ifelse(
+      # if we get to the theoretical maximum, then ze set to it
+      max(df$depth) > 180, 180,
+      # otherwise, we don't know where ze is
+      NA)
   }
 
   return(ze)
