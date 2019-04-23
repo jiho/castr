@@ -53,7 +53,7 @@ ze_from_chla <- function(chla, depth, fit=c("piecewise-linear", "polynomial")) {
   }
 
   # the lower limit is the depth at which ze becomes < depth
-  limit <- ze < df$depth
+  limit <- na.omit(ze < df$depth)
   if (any(limit)) {
     # when this happens, get the corresponding depth
     ze <- df$depth[min(which(limit))]
