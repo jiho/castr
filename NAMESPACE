@@ -3,6 +3,7 @@
 S3method(roundp,Date)
 S3method(roundp,POSIXct)
 S3method(roundp,numeric)
+export(censor)
 export(clined)
 export(closest)
 export(cweights)
