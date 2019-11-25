@@ -35,7 +35,7 @@ ze_from_chla <- function(chla, depth, fit=c("piecewise-linear", "polynomial")) {
   # determine which fitting method to use
   fit <- match.arg(fit)
 
-  df <- na.omit(data.frame(chla, depth))
+  df <- stats::na.omit(data.frame(chla, depth))
 
   # compute integrated chlorophyll
   integrated_chla <- cumsum(df$chla)
@@ -53,7 +53,7 @@ ze_from_chla <- function(chla, depth, fit=c("piecewise-linear", "polynomial")) {
   }
 
   # the lower limit is the depth at which ze becomes < depth
-  limit <- na.omit(ze < df$depth)
+  limit <- stats::na.omit(ze < df$depth)
   if (any(limit)) {
     # when this happens, get the corresponding depth
     ze <- df$depth[min(which(limit))]

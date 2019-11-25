@@ -15,7 +15,7 @@ ze_from_par <- function(par, depth) {
   ok <- check_input(par, depth)
   if (!ok) { return(NA) }
 
-  df <- na.omit(data.frame(par, depth))
+  df <- stats::na.omit(data.frame(par, depth))
 
   if (min(df$depth) > 2) {
     warning("No value of PAR above 2 m depth. Cannot compute Ze.")
