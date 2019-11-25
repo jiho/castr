@@ -62,7 +62,7 @@ ze_from_chla <- function(chla, depth, fit=c("piecewise-linear", "polynomial")) {
     # so when ze is too deep, set it to the maximum
     if (ze > 180) {
       ze <- 180
-    }    
+    }
   } else {
     # when this is never true, ze is deeper than the maximum depth (or is the theoretical maximum)
     ze <- ifelse(
