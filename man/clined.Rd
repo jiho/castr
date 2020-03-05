@@ -35,6 +35,7 @@ abline(h=-halocline, col="red")
 
 Other functions computing remarkable depths: \code{\link{maxd}},
   \code{\link{mld}}, \code{\link{ze_from_chla}},
-  \code{\link{ze_from_par}}
+  \code{\link{ze_from_par}},
+  \code{\link{ze_from_surface_chla}}
 }
 \concept{functions computing remarkable depths}

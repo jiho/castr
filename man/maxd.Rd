@@ -35,6 +35,7 @@ abline(h=-DCM, col="chartreuse4")
 
 Other functions computing remarkable depths: \code{\link{clined}},
   \code{\link{mld}}, \code{\link{ze_from_chla}},
-  \code{\link{ze_from_par}}
+  \code{\link{ze_from_par}},
+  \code{\link{ze_from_surface_chla}}
 }
 \concept{functions computing remarkable depths}

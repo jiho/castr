@@ -25,6 +25,7 @@ The lower limit of the euphotic zone (\code{Ze}) is the depth at which the downw
 
 Other functions computing remarkable depths: \code{\link{clined}},
   \code{\link{maxd}}, \code{\link{mld}},
-  \code{\link{ze_from_chla}}
+  \code{\link{ze_from_chla}},
+  \code{\link{ze_from_surface_chla}}
 }
 \concept{functions computing remarkable depths}

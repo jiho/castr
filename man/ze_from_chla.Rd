@@ -44,6 +44,7 @@ Morel and Maritorena (2001). Bio-optical properties of oceanic waters: A reappra
 
 Other functions computing remarkable depths: \code{\link{clined}},
   \code{\link{maxd}}, \code{\link{mld}},
-  \code{\link{ze_from_par}}
+  \code{\link{ze_from_par}},
+  \code{\link{ze_from_surface_chla}}
 }
 \concept{functions computing remarkable depths}
