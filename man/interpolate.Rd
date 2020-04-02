@@ -29,13 +29,13 @@ set.seed(1)
 # interpolate numerical values
 x <- jitter(1:10, 2)
 y <- runif(10, 10, 100)
-xout <- 1:10
-plot(x, y, type="b")
+xout <- seq(0,11,by=0.1)
+plot(x, y, type="b", xlim=c(0,11))
 rug(x)
 rug(xout, col="red")
 points(xout, interpolate(x, y, xout, method="constant"), col="red")
-points(xout, interpolate(x, y, xout, method="linear"), col="darkgreen")
-points(xout, interpolate(x, y, xout, method="spline"), col="blue")
+points(xout, interpolate(x, y, xout, method="linear"), col="darkgreen", pch=4)
+points(xout, interpolate(x, y, xout, method="spline", extrapolate=FALSE), col="blue", pch=3)
 
 # interpolate a factor
 x <- jitter(1:10, 2)

@@ -15,13 +15,13 @@
 #' # interpolate numerical values
 #' x <- jitter(1:10, 2)
 #' y <- runif(10, 10, 100)
-#' xout <- 1:10
-#' plot(x, y, type="b")
+#' xout <- seq(0,11,by=0.1)
+#' plot(x, y, type="b", xlim=c(0,11))
 #' rug(x)
 #' rug(xout, col="red")
 #' points(xout, interpolate(x, y, xout, method="constant"), col="red")
-#' points(xout, interpolate(x, y, xout, method="linear"), col="darkgreen")
-#' points(xout, interpolate(x, y, xout, method="spline"), col="blue")
+#' points(xout, interpolate(x, y, xout, method="linear"), col="darkgreen", pch=4)
+#' points(xout, interpolate(x, y, xout, method="spline", extrapolate=FALSE), col="blue", pch=3)
 #'
 #' # interpolate a factor
 #' x <- jitter(1:10, 2)
@@ -50,8 +50,12 @@ interpol.default <- function(x, y, xout, method="linear", extrapolate=TRUE) {
     linear = stats::approxfun(x, y, method="linear", rule=ifelse(extrapolate, 2, 1)),
     spline = stats::splinefun(x, y)
   )
-
-  fi(xout)
+  res <- fi(xout)
+  if (!extrapolate) {
+    res[xout<min(x, na.rm=TRUE)] <- NA
+    res[xout>max(x, na.rm=TRUE)] <- NA
+  }
+  return(res)
 }
 
 interpol.factor <- function(x, y, xout, method="constant", extrapolate=TRUE) {
